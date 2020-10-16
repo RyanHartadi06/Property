@@ -1,7 +1,7 @@
 <div class="container-fluid">
 <div class="well well-lg">
     <div class="container">
-        <h2>Daftar Rumah</h2>
+        <h2>Data Agency</h2>
     </div>
 </div>
 

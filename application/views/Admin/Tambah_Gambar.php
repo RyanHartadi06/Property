@@ -31,19 +31,12 @@
                     <?php } ?>
                     <p>Gambar</p>
                     <div class="input-group">
-                        <input name="gambar"
-                            id="gambar"
+                        <input name="files[]"
                             type="file"
                             class="form-control border-dark small mb-3"
-                            aria-describedby="basic-addon2"
-                            value="">
+                            aria-describedby="basic-addon2" multiple>
                     </div>
-                    <button type="submit" name="submit" id="submit" class="btn btn-info btn-icon-split">
-                        <span class="icon text-white-50">
-                        <i class="fas fa-plus"></i>
-                        </span>
-                        <span class="text">Tambah</span>
-                    </button>
+                      <input type='submit' value='Upload' name='upload' />
                     <a href="<?php echo site_url('Data_Rumah') ?>" class="btn btn-danger btn-icon-split">
                         <span class="icon text-white-50">
                         <i class="fas fa-reply"></i>

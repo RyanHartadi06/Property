@@ -59,10 +59,37 @@
   <script src="<?= base_url("assets/vendor/chart.js/Chart.min.js")?>"></script>
   <script src="<?= base_url("assets/vendor/datatables/jquery.dataTables.min.js")?>"></script>
   <script src="<?= base_url("assets/vendor/datatables/dataTables.bootstrap4.min.js")?>"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
   <!-- Page level custom scripts -->
   <script src="<?= base_url("assets/js/demo/datatables-demo.js")?>"></script>
   <script src="<?= base_url("assets/js/demo/chart-area-demo.js")?>"></script>
   <script src="<?= base_url("assets/js/demo/chart-pie-demo.js")?>"></script>
+  <script>
+//    $(function() {
+//     // Multiple images preview in browser
+//     var imagesPreview = function(input, placeToInsertImagePreview) {
 
+//         if (input.files) {
+//             var filesAmount = input.files.length;
+
+//             for (i = 0; i < filesAmount; i++) {
+//                 var reader = new FileReader();
+
+//                 reader.onload = function(event) {
+//                     $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+//                 }
+
+//                 reader.readAsDataURL(input.files[i]);
+//             }
+//         }
+
+//     };
+
+//     $('#files').on('change', function() {
+//         imagesPreview(this, 'div.gallery');
+//     });
+// });
+
+</script>
 </body>
