@@ -75,7 +75,7 @@
                                 class="btn btn-sm btn-success btn-circle">
                                 <i class="fas fa-pen"></i>
                                 </a>
-                                <a href="<?php echo base_url("panti/kasus_detail/" .$row['id_rumah']);?>"
+                                <a href="<?php echo base_url("Data_Rumah/hapus/" .$row['id_rumah']);?>"
                                 class="btn btn-sm btn-danger btn-circle">
                                 <i class="fas fa-trash"></i>
                                 </a>

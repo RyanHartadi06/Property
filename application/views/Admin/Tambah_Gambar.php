@@ -34,7 +34,7 @@
                         <input name="files[]"
                             type="file"
                             class="form-control border-dark small mb-3"
-                            aria-describedby="basic-addon2" multiple="multiple">
+                            aria-describedby="basic-addon2" multiple>
                     </div>
                       <input type='submit' value='Upload' name='upload' />
                     <a href="<?php echo site_url('Data_Rumah') ?>" class="btn btn-danger btn-icon-split">
