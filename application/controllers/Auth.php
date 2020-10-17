@@ -83,7 +83,7 @@
                     'email' => $email,
                     'password' => md5($this->input->post('pass1')),
                     'alamat' => $this->input->post('alamat'),
-                    'no_telp' => '081458900',
+                    'no_telp' =>$this->input->post('no_telp'),
                     'createdDate' => date("Y-m-d H:i:s"),
                 ];
 

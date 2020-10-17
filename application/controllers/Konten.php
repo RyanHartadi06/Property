@@ -82,5 +82,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
             }
         }
+        public function hapus($id){
+            $hapusku = $this->v->hapusdata("id","content",$id);
+            if($hapusku){
+                $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">
+                            Data Berhasil Dihapus
+                </div>');
+                redirect('Konten');
+            } else {
+                $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">
+                            Data Gagal Dihapus
+                </div>');
+                redirect('Konten');
+            }
+        }
     }
     ?>

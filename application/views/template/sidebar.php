@@ -56,7 +56,7 @@
       <span>Profile</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="<?= base_url("")?>">
+    <a class="nav-link" href="<?= base_url("Admin/data")?>">
       <i class="fas fa-fw fa-table"></i>
       <span>Akun Admin</span></a>
   </li>

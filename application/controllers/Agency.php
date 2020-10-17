@@ -81,21 +81,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
         }
         public function hapus($id){
-            // $update = $this->v->ubahdata2(array(
-            //     'status' => 2,
-            // ),"id","kategori", $id);
-            // if($update){
-            //     $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-            //     Berhasil Hapus Data!
-            //     </div>');
-            //     redirect('Kategori');
-            // }else {
-            //     $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-            //     Gagal Hapus Data!
-            //     </div>');
-            //     redirect('Kategori');
-            // }
-            echo "hqwe";
+            $hapusku = $this->v->hapusdata("id_agent","agent",$id);
+            if($hapusku){
+                $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">
+                            Data Berhasil Dihapus
+                </div>');
+                redirect('Agency');
+            } else {
+                $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">
+                            Data Gagal Dihapus
+                </div>');
+                redirect('Agency');
+            }
         }
 }
 ?>

@@ -30,30 +30,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
                 $this->session->userdata('email')])->row_array(); 
                 $data['data'] = $this->v->getdata('rumah');
+                $data['kat'] = $this->v->getdata('kategori');
+                $data['agent'] = $this->v->getdata('agent');
                 $this->load->view("template/sidebar" , $data);
                 $this->load->view("template/header",$data);
                 $this->load->view("Admin/Tambah_Rumah",$data);
                 $this->load->view("template/footer");
             }else {
                 
-                // $gambar = $_FILES['gambar']['name'];
+                $gambar = $_FILES['foto']['name'];
 
-                // $config['allowed_types'] = 'jpg|png|gif|jpeg';
-                // $config['max_size'] = '2048';
-                // $config['upload_path'] = './uploads/berita';
+                $config['allowed_types'] = 'jpg|png|gif|jpeg';
+                $config['max_size'] = '2048';
+                $config['upload_path'] = './uploads/rumah';
 
                 
-                // $this->load->library('upload' , $config);
+                $this->load->library('upload' , $config);
 
-                // if ($this->upload->do_upload('gambar')) {
-                    
-                // } else {
-                //     $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">'
-                //     . $this->upload->display_errors() .
-                //     '</div>');
-                //     redirect('berita');
-                // }
-                // $foto_namaBaru = $this->upload->data('file_name');
+                if ($this->upload->do_upload('foto')) {
+                    $foto_namaBaru = $this->upload->data('file_name');
                     $insert = array(
                         'id_rumah' => $kode,
                         'nama_pemilik_rumah' => $this->input->post('nama_pemilik_rumah'),
@@ -63,6 +58,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         'luas_tanah' => $this->input->post('luas_tanah'),
                         'luas_bangunan' => $this->input->post('luas_bangunan'),
                         'harga' => $this->input->post('harga'),
+                        'banner' => $foto_namaBaru,
+                        'id_agent' => $this->input->post('agent'),
+                        'id_kategori' => $this->input->post('kat'),
                         'no_telp' => $this->input->post('no_telp'),
                         'createdDate' => date('Y-m-d'),
                         'status' => 1,
@@ -76,6 +74,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">GAGAL</div>');
                         redirect('Data_Rumah');
                     }	
+                } else {
+                    $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">'
+                    . $this->upload->display_errors() .
+                    '</div>');
+                    redirect('Data_Rumah');
+                }
+                
             }
         }
         public function add_image($id){
@@ -96,14 +101,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $config['max_size']             = 500;
                 $config['max_width']            = 2048;
                 $config['max_height']           = 1000;
+                $config['max_width']            = 2048;
+                $config['max_height']           = 1000;
                 $config['encrypt_name'] 		= true;
+                $config['image_library'] = 'gd2';
+                $config['maintain_ratio'] = TRUE;
+                $config['width']         = 75;
+                $config['height']       = 50;
                 // $config['image_library'] = 'gd2';
                 // $config['maintain_ratio'] = TRUE;
                 // $config['width']         = 75;
                 // $config['height']       = 50;
 
+                $this->load->library('image_lib', $config);
                 // $this->load->library('image_lib', $config);
 
+                $this->image_lib->resize();
                 // $this->image_lib->resize();
                 $this->load->library('upload',$config);
                 $keterangan_berkas = $this->input->post('files');
@@ -117,14 +130,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
                         $_FILES['file']['error'] = $_FILES['files']['error'][$i];
                         $_FILES['file']['size'] = $_FILES['files']['size'][$i];
-            
+                        
                         if($this->upload->do_upload('file')){
-                            
+                            echo 'qweqe';
                             $uploadData = $this->upload->data();
                             $data['id_detail_rumah'] = rand(111 , 999);
                             $data['id_rumah'] = $id;
                             $data['gambar'] = $uploadData['file_name'];
-                            $this->db->insert('detail_rumah',$data);
+                            // $this->db->insert('detail_rumah',$data);
                             echo json_encode($data);
                             //  if($data){
                             //         $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">

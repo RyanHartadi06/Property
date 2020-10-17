@@ -122,12 +122,43 @@
               <div class="col">
                 <p>Deskripsi Rumah</p>
                   <div class="input-group">
-                  <textarea rows = "5" cols = "100%" name = "deskripsi" id ="deskripsi"></textarea>
+                  <textarea type="text"
+                    id="deskripsi"
+                    name="deskripsi"
+                           class="form-control border-dark mb-3"
+                           placeholder="Masukkan Deskripsi "
+                           value="<?php echo set_value('deskripsi')?>"
+                           aria-describedby="basic-addon2"></textarea>
                   </div>
                   <?= form_error('deskripsi', '<small class="text-danger">', '</small>')?> 
               </div>
           </div>
-            <!-- <div class="row">
+          <div class="row">
+              <div class="col">
+                <p>Pilih Kategori</p>
+                <div class="input-group">
+                    <select class="form-control border-dark small mb-3" id="kat" name="kat">
+                        <?php foreach ($kat as $l) { ?>
+                            <option value="<?php echo $l['id']; ?>"><?php echo $l['name']; ?> </option>
+                        <?php } ?>
+
+                    </select>
+                </div>
+                  </div>
+              </div>
+              <div class="row">
+              <div class="col">
+                <p>Pilih Agent</p>
+                <div class="input-group">
+                    <select class="form-control border-dark small mb-3" id="agent" name="agent">
+                        <?php foreach ($agent as $l) { ?>
+                            <option value="<?php echo $l['id_agent']; ?>"><?php echo $l['nama_agent']; ?> </option>
+                        <?php } ?>
+                    </select>
+                </div>
+                  </div>
+              </div>
+            <div class="row">
                 <div class="col">
                     <p>Foto</p>
                     <div class="input-group">
@@ -139,7 +170,7 @@
                             aria-describedby="basic-addon2">
                         </div>
                 </div>
-            </div>  -->
+            </div> 
               <br />
               <button type="submit" class="btn btn-info btn-icon-split">
                 <span class="icon text-white-50">

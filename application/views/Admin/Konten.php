@@ -45,8 +45,8 @@
                                 class="btn btn-sm btn-success btn-circle">
                                 <i class="fas fa-pen"></i>
                                 </a>
-                                <a href="<?php echo base_url("kategori/hapus/" .$row['id']);?>"
-                                        onclick="confirm_modal('<?php echo 'kategori/hapus/' .$row['id']; ?>')"
+                                <a href="<?php echo base_url("konten/hapus/" .$row['id']);?>"
+                                        onclick="confirm_modal('<?php echo 'konten/hapus/' .$row['id']; ?>')"
                                         class="btn btn-sm btn-danger btn-circle"
                                         data-toggle="modal" data-target="#hapusModal">
                                         <i class="fa fa-trash"></i>
@@ -84,5 +84,13 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function confirm_modal(delete_url) {
+        $('#hapusModal').modal('show', {
+            backdrop: 'static'
+        });
+        document.getElementById('delete_link').setAttribute('href', delete_url);
+    }
+</script>
 
 

@@ -12,6 +12,10 @@
       public function getDetailProf($tb , $column , $id){
         return $query = $this->db->query("SELECT * FROM $tb WHERE $column = '$id'")->result_array();
       }
+      public function hapusdata($column , $tb ,$id){
+        $this->db->where($column,$id);
+        return $this->db->delete($tb);
+    }
       public function insert($tabel, $arr)
       {
           $cek = $this->db->insert($tabel, $arr);
@@ -19,6 +23,24 @@
       }
       public function save_batch($data){
         return $this->db->insert_batch('detail_rumah', $data);
+      }
+      public function getTotal($tb)
+      {
+          $query = $this->db->get($tb);
+          if ($query->num_rows() > 0) {
+              return $query->num_rows();
+          } else {
+              return 0;
+          }
+      }
+      public function getTotal2($tb , $status)
+      {
+          $query = $this->db->query("SELECT * FROM $tb where status = '$status'");
+          if ($query->num_rows() > 0) {
+              return $query->num_rows();
+          } else {
+              return 0;
+          }
       }
        public function getDetail($id){
         $this->load->database();

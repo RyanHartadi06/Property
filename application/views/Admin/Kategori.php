@@ -82,3 +82,11 @@
 </div>
 
 
+<script type="text/javascript">
+    function confirm_modal(delete_url) {
+        $('#hapusModal').modal('show', {
+            backdrop: 'static'
+        });
+        document.getElementById('delete_link').setAttribute('href', delete_url);
+    }
+</script>
