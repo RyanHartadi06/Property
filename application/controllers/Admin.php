@@ -16,8 +16,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['totalAgent'] = $this->v->getTotal('agent');
             $data['tersedia'] = $this->v->getTotal2('rumah' , 1);
             $data['terjual'] = $this->v->getTotal2('rumah' , 2);
-            $this->load->view("template/sidebar" , $data);
             $this->load->view("template/header",$data);
+            $this->load->view("template/sidebar" , $data);
             $this->load->view("template/dashboard",$data);
             $this->load->view("template/footer");
         }

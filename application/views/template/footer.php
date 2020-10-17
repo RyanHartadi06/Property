@@ -1,15 +1,15 @@
   <!-- Footer -->
   <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
-
+    <div class="container my-auto">
+      <div class="copyright text-center my-auto">
+        <span>Copyright &copy; Your Website 2019</span>
+      </div>
     </div>
-    <!-- End of Content Wrapper -->
+  </footer>
+  <!-- End of Footer -->
+
+  </div>
+  <!-- End of Content Wrapper -->
 
   </div>
   <!-- End of Page Wrapper -->
@@ -20,7 +20,8 @@
   </a>
 
   <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -41,7 +42,12 @@
   <!-- Bootstrap core JavaScript-->
   <script src="<?= base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
   <script src="<?= base_url("assets/vendor/bootstrap/js/bootstrap.bundle.min.js")?>"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#desc').summernote();
+    });
+  </script>
   <!-- Core plugin JavaScript-->
   <script src="<?= base_url("assets/vendor/jquery-easing/jquery.easing.min.js")?>"></script>
 
@@ -49,10 +55,10 @@
   <script src="<?= base_url("assets/js/sb-admin-2.min.js")?>"></script>
 
   <script>
-  $('.custom-file-input').on('change', function() {
-    let fileName = $(this).val().split('\\').pop();
-    $(this).next('.custom-file-label').addClass("selected").html (fileName);
-  });
+    $('.custom-file-input').on('change', function () {
+      let fileName = $(this).val().split('\\').pop();
+      $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    });
   </script>
 
   <!-- Page level plugins -->
@@ -66,30 +72,29 @@
   <script src="<?= base_url("assets/js/demo/chart-area-demo.js")?>"></script>
   <script src="<?= base_url("assets/js/demo/chart-pie-demo.js")?>"></script>
   <script>
-//    $(function() {
-//     // Multiple images preview in browser
-//     var imagesPreview = function(input, placeToInsertImagePreview) {
+    //    $(function() {
+    //     // Multiple images preview in browser
+    //     var imagesPreview = function(input, placeToInsertImagePreview) {
 
-//         if (input.files) {
-//             var filesAmount = input.files.length;
+    //         if (input.files) {
+    //             var filesAmount = input.files.length;
 
-//             for (i = 0; i < filesAmount; i++) {
-//                 var reader = new FileReader();
+    //             for (i = 0; i < filesAmount; i++) {
+    //                 var reader = new FileReader();
 
-//                 reader.onload = function(event) {
-//                     $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
-//                 }
+    //                 reader.onload = function(event) {
+    //                     $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+    //                 }
 
-//                 reader.readAsDataURL(input.files[i]);
-//             }
-//         }
+    //                 reader.readAsDataURL(input.files[i]);
+    //             }
+    //         }
 
-//     };
+    //     };
 
-//     $('#files').on('change', function() {
-//         imagesPreview(this, 'div.gallery');
-//     });
-// });
-
-</script>
-</body>
+    //     $('#files').on('change', function() {
+    //         imagesPreview(this, 'div.gallery');
+    //     });
+    // });
+  </script>
+  </body>

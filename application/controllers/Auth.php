@@ -32,7 +32,7 @@
             //lakukan pengecekan apakah email dari user ada
             $user = $this->db->get_where('pengguna', ['email' => $email])->row_array();
            
-            if ($user) { //jika user active
+            if ($user != null) { //jika user active
                 if ($password === $user['password']) {
                     $data = [
                         'email' => $user['email'],
