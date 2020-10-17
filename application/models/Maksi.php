@@ -6,9 +6,6 @@
        public function getData($tb){
          return $query = $this->db->query("SELECT * FROM $tb")->result_array();
        }
-       public function getData2($tb){
-        return $query = $this->db->query("SELECT * FROM $tb WHERE status = 1")->result_array();
-      }
        public function getDataGambar($tb , $id){
         return $query = $this->db->query("SELECT * FROM $tb WHERE id_rumah = '$id'")->result_array();
       }

@@ -37,12 +37,16 @@
       <i class="fas fa-fw fa-table"></i>
       <span>Kategori Rumah</span></a>
   </li>
-
+  <li class="nav-item">
+    <a class="nav-link" href="<?= base_url("Konten")?>">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Konten</span></a>
+  </li>
   <div class="sidebar-heading">
     Sistem
   </div>
   <li class="nav-item">
-    <a class="nav-link" href="<?= base_url("")?>">
+    <a class="nav-link" href="<?= base_url("Agency")?>">
       <i class="fas fa-fw fa-table"></i>
       <span>Agency</span></a>
   </li>

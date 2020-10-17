@@ -94,17 +94,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $config['upload_path']          = './uploads/rumah/';
                 $config['allowed_types']        = 'gif|jpg|png';
                 $config['max_size']             = 500;
-                // $config['max_width']            = 2048;
-                // $config['max_height']           = 1000;
+                $config['max_width']            = 2048;
+                $config['max_height']           = 1000;
                 $config['encrypt_name'] 		= true;
-                $config['image_library'] = 'gd2';
-                $config['maintain_ratio'] = TRUE;
-                $config['width']         = 75;
-                $config['height']       = 50;
+                // $config['image_library'] = 'gd2';
+                // $config['maintain_ratio'] = TRUE;
+                // $config['width']         = 75;
+                // $config['height']       = 50;
 
-                $this->load->library('image_lib', $config);
+                // $this->load->library('image_lib', $config);
 
-                $this->image_lib->resize();
+                // $this->image_lib->resize();
                 $this->load->library('upload',$config);
                 $keterangan_berkas = $this->input->post('files');
                 $jumlah_berkas = count($_FILES['files']['name']);
