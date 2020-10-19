@@ -16,6 +16,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['totalAgent'] = $this->v->getTotal('agent');
             $data['tersedia'] = $this->v->getTotal2('rumah' , 1);
             $data['terjual'] = $this->v->getTotal2('rumah' , 2);
+            $query =  $this->db->query("SELECT COUNT(`id_rumah`) as count,MONTHNAME(createdDate) as month_name FROM rumah  WHERE Status = '2'
+            GROUP BY MONTH(createdDate)")->result(); 
+            
+            foreach($query as $row) {
+                $data['label'][] = $row->month_name;
+                $data['data'][] = (int) $row->count;
+            }
+			$data['chart_data'] = json_encode($data);
             $this->load->view("template/header",$data);
             $this->load->view("template/sidebar" , $data);
             $this->load->view("template/dashboard",$data);

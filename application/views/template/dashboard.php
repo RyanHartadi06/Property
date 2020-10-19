@@ -76,9 +76,10 @@
     </div>
     <!-- Card Body -->
     <div class="card-body">
-      <div class="chart-area">
-        <canvas id="myAreaChart"></canvas>
-      </div>
+        <div class="chart-area">
+            <canvas id="bar-chart"></canvas>
+            <!--Load chart js-->
+        </div>
     </div>
   </div>
 </div>
@@ -108,3 +109,4 @@
 
 </div>
       <!-- End of Main Content -->
+    
