@@ -32,7 +32,7 @@
             //lakukan pengecekan apakah email dari user ada
             $user = $this->db->get_where('pengguna', ['email' => $email])->row_array();
            
-            if ($user != null) { //jika user active
+            if ($user) { //jika user active
                 if ($password === $user['password']) {
                     $data = [
                         'email' => $user['email'],
@@ -46,7 +46,9 @@
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                             Wrong password !
                     </div>');
-                    redirect('Admin');
+                    // redirect('Admin');
+
+                redirect('');
                 }
                 
             } else {

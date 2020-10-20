@@ -38,7 +38,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'title' => $this->input->post('title'),
                     'description' => $this->input->post('desc'),
                     'icon' => $this->input->post('icon'),
-                    'status' => '1'
                 );
                 if ($this->v->insert('content' ,$insert)) {
                     $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">

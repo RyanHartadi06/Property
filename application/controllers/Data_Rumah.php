@@ -192,7 +192,7 @@ class Data_Rumah extends CI_Controller
                             $data['id_rumah'] = $id;
                             $data['gambar'] = $uploadData['file_name'];
                             $this->db->insert('detail_rumah',$data);
-                            // echo json_encode($data);
+                            echo json_encode($data);
                             "<pre>".print_r($data)."</pre>";
                             //  if($data){
                             //         $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">

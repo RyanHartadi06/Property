@@ -24,13 +24,13 @@
               <div class="col">
                 <p>Description</p>
                   <div class="input-group">
-                    <input type="text"
+                    <textarea type="text"
                     id="desc"
                     name="desc"
                            class="form-control border-dark small mb-3"
                            placeholder="Masukkan Nama desc Property"
                            value="<?php echo set_value('desc')?>"
-                           aria-describedby="basic-addon2">
+                           aria-describedby="basic-addon2"></textarea>
                   </div>
                   <?= form_error('desc', '<small class="text-danger">', '</small>')?> 
               </div>

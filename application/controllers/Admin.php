@@ -23,9 +23,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $data['label'][] = $row->month_name;
                 $data['data'][] = (int) $row->count;
             }
-			$data['chart_data'] = json_encode($data);
-            $this->load->view("template/header",$data);
+            $data['chart_data'] = json_encode($data);
+            
             $this->load->view("template/sidebar" , $data);
+            $this->load->view("template/header",$data);
             $this->load->view("template/dashboard",$data);
             $this->load->view("template/footer");
         }
@@ -60,7 +61,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'no_telp' => $this->input->post('no_telp'),
                     'createdDate' => date("Y-m-d H:i:s"),
                 ),"id_pengguna","pengguna", $id);
-    
                 if($update){
                     $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
                     Berhasil Mengubah Data!
@@ -72,8 +72,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>');
                     redirect('Admin/data');
                 }
-                
-        
                 }	
             }
     }
