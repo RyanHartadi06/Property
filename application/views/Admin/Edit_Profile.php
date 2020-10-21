@@ -10,13 +10,12 @@
               <div class="col">
                 <p>Visi</p>
                   <div class="input-group">
-                    <input type="text"
+                    <textarea type="text"
                     id="visi"
                     name="visi"
                            class="form-control border-dark small mb-3"
                            placeholder="Masukkan Visi"
-                           value="<?= $d['visi']?>"
-                           aria-describedby="basic-addon2">
+                           aria-describedby="basic-addon2"><?= $d['visi']?></textarea>
                   </div>
                   <?= form_error('visi', '<small class="text-danger">', '</small>')?> 
               </div>
@@ -26,13 +25,12 @@
               <div class="col">
                 <p>Misi</p>
                   <div class="input-group">
-                    <input type="text"
+                    <textarea type="text"
                     id="misi"
                     name="misi"
                            class="form-control border-dark small mb-3"
                            placeholder="Masukkan Misi"
-                           value="<?= $d['misi']?>"
-                           aria-describedby="basic-addon2">
+                           aria-describedby="basic-addon2"><?= $d['misi']?></textarea>
                   </div>
                   <?= form_error('misi', '<small class="text-danger">', '</small>')?> 
               </div>
@@ -44,13 +42,12 @@
             <div class="col">
                 <p>Deskripsi</p>
                     <div class="input-group">
-                        <input type="text"
-                        id="deskripsi"
-                        name="deskripsi"
+                        <textarea type="text"
+                        id="desc"
+                        name="desc"
                                 class="form-control border-dark small mb-3"
                                 placeholder="Masukkan Deskripsi"
-                                value="<?= $d['deskripsi']?>"
-                                aria-describedby="basic-addon2">
+                                aria-describedby="basic-addon2"><?= $d['deskripsi']?></textarea>
                         </div>
                         <?= form_error('deskripsi', '<small class="text-danger">', '</small>')?> 
             </div>

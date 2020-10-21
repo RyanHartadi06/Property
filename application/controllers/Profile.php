@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->view("template/footer");
         }
         public function edit($id){
-            $this->form_validation->set_rules('deskripsi' , 'Deskripsi' , 'required');
+            $this->form_validation->set_rules('desc' , 'Deskripsi' , 'required');
             $this->form_validation->set_rules('visi' , 'Visi' , 'required');
             $this->form_validation->set_rules('misi' , 'Misi' , 'required');
             if ($this->form_validation->run() == false) {
@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $update = $this->v->ubahdata(array(
                     'visi' => $this->input->post("visi"),
                     'misi' => $this->input->post("misi"),
-                    'deskripsi' => $this->input->post("deskripsi")
+                    'deskripsi' => $this->input->post("desc")
                 ), $id);
     
                 if($update){

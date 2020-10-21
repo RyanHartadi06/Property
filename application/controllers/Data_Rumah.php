@@ -60,7 +60,7 @@ class Data_Rumah extends CI_Controller
                     'id_rumah' => $kd,
                     'nama_pemilik_rumah' => $this->input->post('nama_pemilik_rumah'),
                     'alamat_lengkap' => $this->input->post('alamat_lengkap'),
-                    'deskripsi' => $this->input->post('deskripsi'),
+                    'deskripsi' => $this->input->post('desc'),
                     'jumlah_kamar' => $this->input->post('jumlah_kamar'),
                     'luas_tanah' => $this->input->post('luas_tanah'),
                     'luas_bangunan' => $this->input->post('luas_bangunan'),

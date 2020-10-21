@@ -98,7 +98,7 @@
               <div class="col">
                 <p>Harga</p>
                   <div class="input-group">
-                    <input type="number"
+                    <input type="text"
                     id="harga"
                     name="harga"
                           class="form-control border-dark small mb-3"
@@ -184,10 +184,10 @@
                 <p>Deskripsi Rumah</p>
                   <div class="input-group">
                   <textarea type="text"
-                    id="deskripsi"
-                    name="deskripsi"
+                    id="desc"
+                    name="desc"
                            class="form-control border-dark mb-3"
-                           value="<?php echo set_value('deskripsi')?>"
+                       
                            aria-describedby="basic-addon2"></textarea>
                   </div>
                   <?= form_error('deskripsi', '<small class="text-danger">', '</small>')?> 

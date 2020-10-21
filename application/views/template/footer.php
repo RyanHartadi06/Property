@@ -48,6 +48,8 @@
   <script>
     $(document).ready(function () {
       $('#desc').summernote();
+      $('#visi').summernote();
+      $('#misi').summernote();
     });
   </script>
   <!-- Core plugin JavaScript-->
@@ -73,7 +75,6 @@
   <script src="<?= base_url("assets/js/demo/datatables-demo.js")?>"></script>
   <script src="<?= base_url("assets/js/demo/chart-area-demo.js")?>"></script>
   <script src="<?= base_url("assets/js/demo/chart-pie-demo.js")?>"></script>
-  <!-- <script src="<?= base_url("assets/js/loadrumah.js") ?>"></script> -->
 
   <script>
   loadrumah();
@@ -172,7 +173,30 @@
                   }
                 });
               }
-
+  /* Dengan Rupiah */
+  var dengan_rupiah = document.getElementById('harga');
+    dengan_rupiah.addEventListener('keyup', function(e)
+    {
+        dengan_rupiah.value = formatRupiah(this.value);
+    });
+    
+    /* Fungsi */
+    function formatRupiah(angka, prefix)
+    {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split    = number_string.split(','),
+            sisa     = split[0].length % 3,
+            rupiah     = split[0].substr(0, sisa),
+            ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+            
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+        
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? + rupiah : '');
+    }
 //====================================================================================//
       //ini grafik
     // Set new default font family and font color to mimic Bootstrap's default styling
