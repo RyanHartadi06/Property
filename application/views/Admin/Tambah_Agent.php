@@ -87,7 +87,7 @@
                 </span>
                 <span class="text">Kirim Data</span>
               </button>
-              <a href="<?= base_url('Kategori') ?>" class="btn btn-danger btn-icon-split">
+              <a href="<?= base_url('Agency') ?>" class="btn btn-danger btn-icon-split">
                 <span class="icon text-white-50">
                   <i class="fas fa-reply"></i>
                 </span>

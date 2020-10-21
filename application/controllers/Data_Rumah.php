@@ -104,16 +104,76 @@ class Data_Rumah extends CI_Controller
         $this->load->view("template/footer");
     }
     public function edit($id){
-        $data['Pengguna'] = $this->db->get_where('pengguna', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $data['data'] = $this->v->getDetailDataRumah($id);
-        $data['rumah'] = $this->v->getDataGambar('detail_rumah', $id);
-        $data['kategori'] = $this->v->getData('kategori');
-        $data['agent'] = $this->v->getData('agent');
-        $this->load->view("template/sidebar", $data);
-        $this->load->view("template/header", $data);
-        $this->load->view("Admin/Update_Rumah", $data);
-        $this->load->view("template/footer");
+        $this->form_validation->set_rules('desc' , 'Description' , 'required');
+        if ($this->form_validation->run() == false) {
+            $data['Pengguna'] = $this->db->get_where('pengguna', ['email' =>
+            $this->session->userdata('email')])->row_array();
+            $data['data'] = $this->v->getDetailDataRumah($id);
+            $data['rumah'] = $this->v->getDataGambar('detail_rumah', $id);
+            $data['kategori'] = $this->v->getData('kategori');
+            $data['agent'] = $this->v->getData('agent');
+            $this->load->view("template/sidebar", $data);
+            $this->load->view("template/header", $data);
+            $this->load->view("Admin/Update_Rumah", $data);
+            $this->load->view("template/footer");
+        }else {
+            
+            $update = $this->v->ubahdata2(array(
+                'nama_pemilik_rumah' => $this->input->post("nama"),
+                'alamat_lengkap' => $this->input->post("alamat"),
+                'deskripsi' => $this->input->post("desc"),
+                'jumlah_kamar' => $this->input->post("kamar"),
+                'luas_tanah' => $this->input->post("tanah"),
+                'harga' => $this->input->post("harga"),
+                'no_telp' => $this->input->post("no_telp"),
+                'sertifikat' => $this->input->post("sertifikat"),
+                'air' => $this->input->post("air"),
+                'listrik' => $this->input->post("listrik"),
+                'kondisi' => $this->input->post("kondisi"),
+                'id_agent' => $this->input->post("agent"),
+                'id_kategori' => $this->input->post("kategori"),
+            ), "id_rumah","rumah", $id);
+
+            if($update){
+                $ubahfoto = $_FILES['logo']['name'];
+    
+                if ($ubahfoto) {
+                    $config['allowed_types'] = 'jpg|png|gif';
+                    $config['max_size'] = '2048';
+                    $config['upload_path'] = './uploads/rumah/';
+    
+                    $this->load->library('upload', $config);
+    
+                    if ($this->upload->do_upload('logo')) {
+                        $user = $this->db->get_where('rumah', ['id_rumah'=>$id])->row_array();
+                        $fotolama = $user['banner'];
+                        if ($fotolama) {
+                            unlink(FCPATH . '/uploads/rumah/' . $fotolama);
+                        }
+                        $fotobaru = $this->upload->data('file_name');
+                        $this->db->set('banner', $fotobaru);
+                        $this->db->where('id_rumah', $id);
+                        $this->db->update('rumah');
+                    } else {
+                        $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">'
+                        . $this->upload->display_errors() .
+                        '</div>');
+                        // redirect('user/editprofile');
+                        redirect('Data_Rumah');
+                    }
+                }
+                $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+                Berhasil Mengubah Data!
+                </div>');
+                redirect('Data_Rumah');
+            }else{
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+                Gagal Mengubah Data!
+                </div>');
+                redirect('Data_Rumah');
+            }
+            
+        }
     }
     public function filter(){
 		$status = $_GET['dataStatus'];
@@ -183,7 +243,7 @@ class Data_Rumah extends CI_Controller
             if ($jumlah_berkas > 10) {
                 $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
                                     Maaf! Maksimal Foto unggahan dibatasi sebanyak 10 foto.
-                                    </div>');
+                </div>');
             } else {
 
                 for ($i = 0; $i < $jumlah_berkas; $i++) {

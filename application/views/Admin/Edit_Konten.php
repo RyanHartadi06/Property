@@ -1,7 +1,7 @@
 
 <div class="container-fluid">
 
-<h1 class="h3 mb-2 text-gray-800">Tambah Konten</h1>
+<h1 class="h3 mb-2 text-gray-800">Edit Konten</h1>
  <form action="" method="post" enctype="multipart/form-data">
 
 <div class="card shadow mb-4">
@@ -26,13 +26,12 @@
               <div class="col">
                 <p>Description</p>
                   <div class="input-group">
-                    <input type="text"
+                    <textarea type="text"
                     id="desc"
                     name="desc"
                            class="form-control border-dark small mb-3"
                            placeholder="Masukkan Nama desc Property"
-                           value="<?= $d['description']?>"
-                           aria-describedby="basic-addon2">
+                           aria-describedby="basic-addon2"><?= $d['description']?></textarea>
                   </div>
                   <?= form_error('desc', '<small class="text-danger">', '</small>')?> 
               </div>
@@ -60,7 +59,7 @@
                 </span>
                 <span class="text">Kirim Data</span>
               </button>
-              <a href="<?= base_url('Kategori') ?>" class="btn btn-danger btn-icon-split">
+              <a href="<?= base_url('Konten') ?>" class="btn btn-danger btn-icon-split">
                 <span class="icon text-white-50">
                   <i class="fas fa-reply"></i>
                 </span>

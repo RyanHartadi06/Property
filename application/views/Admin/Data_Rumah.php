@@ -10,35 +10,29 @@
     <div class="col mt-3">
             <?php echo $this->session->flashdata('pesan')?>
         </div>
-        <div class="row">
-            <a href="<?php echo site_url('Data_Rumah/add') ?>"
+    <div class="d-flex bd-highlight">
+        <div class="p-2 flex-grow-1 bd-highlight"> 
+        <a href="<?php echo site_url('Data_Rumah/add') ?>"
                 class="btn btn-sm btn-info btn-icon-split shadow-sm">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                 </span>
                 <span class="text"> Tambah Data Rumah</span>
             </a>   
-            <div class="col-md-3">
-            <select name="" id="datakategori" class="form-control">
+        </div>
+        <div class="p-2 bd-highlight"> <select name="" id="datakategori" class="form-control">
                          <option value="99">Pilih Kategori</option>
                         <?php foreach($kategori as $r){ ?>
                             <option class="dropdown-item" value="<?= $r['id']; ?>"><?= $r['name'];?></option>
                         <?php } ?>
-                    </select>
-                </div>         
-                 <div class="col-md-3">
-                    <select name="" id="dataStatus" class="form-control">
-                        <option value="3">Show All</option>
+                    </select></div>
+        <div class="p-2 bd-highlight"> <select name="" id="dataStatus" class="form-control">
+                        <option value="3">Pilih Status</option>
                         <option value="1">Tersedia</option>
                         <option value="2">Terjual</option>
-                    </select>
-                </div>     
+                    </select></div>
         </div>
-      
-        
-   
 </div>
-
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered mt-3" id="dataTable">

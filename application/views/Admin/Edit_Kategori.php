@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-<h1 class="h3 mb-2 text-gray-800">Tambah Kategori</h1>
+<h1 class="h3 mb-2 text-gray-800">Edit Kategori</h1>
  <form action="" method="post" enctype="multipart/form-data">
 
 <div class="card shadow mb-4">

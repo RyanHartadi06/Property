@@ -46,6 +46,11 @@
     Sistem
   </div>
   <li class="nav-item">
+    <a class="nav-link" href="<?= base_url("Pages")?>">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Manajemen Pages</span></a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" href="<?= base_url("Agency")?>">
       <i class="fas fa-fw fa-table"></i>
       <span>Agency</span></a>

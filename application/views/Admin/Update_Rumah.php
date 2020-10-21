@@ -30,8 +30,8 @@
         </div>
         <p>Alamat</p>
         <div class="input-group">
-            <input name="nama"
-                id="nama"
+            <input name="alamat"
+                id="alamat"
                 type="text"
                 class="form-control border-dark small mb-3"
                 aria-describedby="basic-addon2"
@@ -40,18 +40,17 @@
         </div>
         <p>Deskripsi</p>
         <div class="input-group">
-            <input name="nama"
-                id="nama"
+            <textarea name="desc"
+                id="desc"
                 type="text"
                 class="form-control border-dark small mb-3"
                 aria-describedby="basic-addon2"
-                value="<?php echo $d['deskripsi'] ?>"
-                >
+                ><?php echo $d['deskripsi'] ?></textarea>
         </div>
         <p>Jumlah Kamar</p>
         <div class="input-group">
-            <input name="nama"
-                id="nama"
+            <input name="kamar"
+                id="kamar"
                 type="text"
                 class="form-control border-dark small mb-3"
                 aria-describedby="basic-addon2"
@@ -60,8 +59,8 @@
         </div>
         <p>Luas Tanah</p>
         <div class="input-group">
-            <input name="nama"
-                id="nama"
+            <input name="tanah"
+                id="tanah"
                 type="text"
                 class="form-control border-dark small mb-3"
                 aria-describedby="basic-addon2"
@@ -70,9 +69,9 @@
         </div>
         <p>Harga</p>
         <div class="input-group">
-            <input name="nama"
-                id="nama"
-                type="text"
+            <input name="harga"
+                id="harga"
+                type="number"
                 class="form-control border-dark small mb-3"
                 aria-describedby="basic-addon2"
                 value="<?php echo $d['harga'] ?>"
@@ -80,18 +79,58 @@
         </div>
         <p>Nomor Telepon</p>
         <div class="input-group">
-            <input name="nama"
-                id="nama"
+            <input name="no_telp"
+                id="no_telp"
                 type="text"
                 class="form-control border-dark small mb-3"
                 aria-describedby="basic-addon2"
                 value="<?php echo $d['no_telp'] ?>"
                 >
         </div>
+        <p>Sertifikat</p>
+        <div class="input-group">
+            <input name="sertifikat"
+                id="sertifikat"
+                type="text"
+                class="form-control border-dark small mb-3"
+                aria-describedby="basic-addon2"
+                value="<?php echo $d['sertifikat'] ?>"
+                >
+        </div>
+        <p>Air</p>
+        <div class="input-group">
+            <input name="air"
+                id="air"
+                type="text"
+                class="form-control border-dark small mb-3"
+                aria-describedby="basic-addon2"
+                value="<?php echo $d['air'] ?>"
+                >
+        </div>
+        <p>Listrik</p>
+        <div class="input-group">
+            <input name="listrik"
+                id="listrik"
+                type="text"
+                class="form-control border-dark small mb-3"
+                aria-describedby="basic-addon2"
+                value="<?php echo $d['listrik'] ?>"
+                >
+        </div>
+        <p>Kondisi</p>
+        <div class="input-group">
+            <input name="kondisi"
+                id="kondisi"
+                type="text"
+                class="form-control border-dark small mb-3"
+                aria-describedby="basic-addon2"
+                value="<?php echo $d['kondisi'] ?>"
+                >
+        </div>
         <p>Agent</p>
         <div class="input-group">
-        <select class="form-control border-dark small mb-3" id="komunitas"
-            name="komunitas" value="<?php echo set_value('komunitas') ?>">
+        <select class="form-control border-dark small mb-3" id="agent"
+            name="agent" value="<?php echo set_value('agent') ?>">
             <!-- <option value=""><?= $d['name']?></option> -->
             <?php foreach ($agent as $row) { ?>
             <option value="<?php echo $row['id_agent']; ?>"<?=($d['id_agent'] == $row['id_agent']? 'selected' : '' ) ?>>
@@ -101,8 +140,8 @@
         </div>
         <p>Kategori</p>
         <div class="input-group">
-        <select class="form-control border-dark small mb-3" id="komunitas"
-            name="komunitas" value="<?php echo set_value('komunitas') ?>">
+        <select class="form-control border-dark small mb-3" id="kategori"
+            name="kategori" value="<?php echo set_value('kategori') ?>">
             <!-- <option value=""><?= $d['name']?></option> -->
             <?php foreach ($kategori as $row) { ?>
             <option value="<?php echo $row['id']; ?>"<?=($d['id'] == $row['id']? 'selected' : '' ) ?>>
@@ -115,10 +154,10 @@
                     <p>Foto</p>
                     <div class="input-group">
                         <input type="file"
-                        id="foto"
-                        name="foto"
+                        id="logo"
+                        name="logo"
                             class="form-control border-dark small mb-3"
-                            value="<?php echo set_value('foto')?>"
+                            value="<?php echo set_value('logo')?>"
                             aria-describedby="basic-addon2">
                         </div>
                 </div>
@@ -135,12 +174,12 @@
                 </div>
             </div> 
             <?php if($d['status'] == 1){?>
-            <a href="<?php echo site_url('Data_Rumah/accepted/'.$d['id_rumah']) ?>" class="btn btn-success btn-icon-split">
+                <button type="submit" class="btn btn-info btn-icon-split">
                 <span class="icon text-white-50">
-                <i class="fas fa-check"></i>
+                  <i class="fas fa-plus"></i>
                 </span>
-                <span class="text">Tandai Sebagai Terjual</span>
-            </a>
+                <span class="text">Ubah Data</span>
+              </button>
         <?php } ?>
         <?php } ?>
       
