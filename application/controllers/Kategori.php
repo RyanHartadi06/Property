@@ -33,7 +33,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $insert = array(
                     'id' => $kode,
                     'name' => $this->input->post('kategori'),
-                    'status' => '1'
                 );
                 if ($this->v->insert('kategori' ,$insert)) {
                     $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">

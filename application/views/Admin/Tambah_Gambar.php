@@ -62,7 +62,7 @@
                                     <th style="width: 150px">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody id="target">
+                            <tbody >
                             <?php 
                             $no = 1;
                             foreach($rumah as $d){?>

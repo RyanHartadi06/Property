@@ -8,86 +8,53 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
     <div class="col mt-3">
-        <?php echo $this->session->flashdata('pesan')?>
-    </div>
-    <a href="<?php echo site_url('Data_Rumah/add') ?>"
-        class="btn btn-sm btn-info btn-icon-split shadow-sm">
-        <span class="icon text-white-50">
-            <i class="fas fa-plus"></i>
-        </span>
-        <span class="text"> Tambah Data Rumah</span>
-    </a>    
+            <?php echo $this->session->flashdata('pesan')?>
+        </div>
+        <div class="row">
+            <a href="<?php echo site_url('Data_Rumah/add') ?>"
+                class="btn btn-sm btn-info btn-icon-split shadow-sm">
+                <span class="icon text-white-50">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="text"> Tambah Data Rumah</span>
+            </a>   
+            <div class="col-md-3">
+            <select name="" id="datakategori" class="form-control">
+                         <option value="99">Pilih Kategori</option>
+                        <?php foreach($kategori as $r){ ?>
+                            <option class="dropdown-item" value="<?= $r['id']; ?>"><?= $r['name'];?></option>
+                        <?php } ?>
+                    </select>
+                </div>         
+                 <div class="col-md-3">
+                    <select name="" id="dataStatus" class="form-control">
+                        <option value="3">Show All</option>
+                        <option value="1">Tersedia</option>
+                        <option value="2">Terjual</option>
+                    </select>
+                </div>     
+        </div>
+      
+        
+   
 </div>
+
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered mt-3" id="dataTable">
                 <thead>
                     <tr>
-                        <th>No</th>
                         <th>Nama Pemilik</th>
                         <th>Alamat Lengkap</th>
-                        <th>Luas Tanah</th>
-                        <th>Luas Bangunan</th>
+                        <th style="width:50px">Luas Tanah</th>
+                        <th style="width:50px">Luas Bangunan</th>
                         <th>Harga</th>
                         <th>Status</th>
-                        <th>Tambahkan Gambar</th>
                         <th>Aksi</th> 
                     </tr>
                 </thead>
-                <tbody> 
-                    <?php 
-                    $no = 1;
-                    foreach ($data as $row){  
-                    ?>
-                        <tr>
-                            <td><?= $no++?></td>
-                            <td><?= $row['nama_pemilik_rumah']?></td>
-                            <td><?= $row['alamat_lengkap']?></td>
-                            <td><?= $row['luas_tanah']?></td>
-                            <td><?= $row['luas_bangunan']?>m</td>
-                            <td><?= $row['harga']?></td>
-                          
-                            <td><?php if ($row['status'] == 0) {
-                            echo '<div class="badge badge-primary badge-pill">Belum Berlangsung</div>';
-                            } elseif ($row['status'] == 1) {
-                            echo '<div class="badge badge-success badge-pill">Tersedia</div>';
-                            }
-                            elseif ($row['status'] == 2) {
-                                echo '<div class="badge badge-danger badge-pill">Sold Out</div>';
-                            }
-                            ?>
-                            </td>
-                            <td>
-                            <a href="<?php echo site_url('Data_Rumah/add_image/'.$row['id_rumah']) ?>"
-                                class="btn btn-sm btn-info btn-icon-split shadow-sm">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-plus"></i>
-                                </span>
-                                <span class="text">Tambahkan Gambar</span>
-                            </a>   
-                            </td>
-                            <td>
-                                <a href="<?php echo base_url("panti/kasus_detail/" .$row['id_rumah']);?>"
-                                class="btn btn-sm btn-primary btn-circle">
-                                <i class="fas fa-plus"></i>
-                                </a>
-                                <a href="<?php echo base_url("panti/kasus_detail/" .$row['id_rumah']);?>"
-                                class="btn btn-sm btn-success btn-circle">
-                                <i class="fas fa-pen"></i>
-                                </a>
-                                <a href="<?php echo base_url("Data_Rumah/hapus/" .$row['id_rumah']);?>"
-                                class="btn btn-sm btn-danger btn-circle">
-                                <i class="fas fa-trash"></i>
-                                </a>
-                                <!-- <a href="<?php echo base_url("Data_Rumah/hapus/" .$row['id_rumah']);?>"
-                                        onclick="confirm_modal('<?php echo 'Data_Rumah/hapus/' .$row['id_rumah']; ?>')"
-                                        class="btn btn-sm btn-danger btn-circle"
-                                        data-toggle="modal" data-target="#hapusModal">
-                                        <i class="fa fa-trash"></i>
-                                </a> -->
-                            </td>
-                        </tr>
-                    <?php }?>
+                <tbody id="target"> 
+                  
                 </tbody>
             </table>
             <div class="modal fade" id="hapusModal" tabindex="-1" role="dialog"
@@ -118,3 +85,11 @@
 </div>
 
 
+<script type="text/javascript">
+    function confirm_modal(delete_url) {
+        $('#hapusModal').modal('show', {
+            backdrop: 'static'
+        });
+        document.getElementById('delete_link').setAttribute('href', delete_url);
+    }
+</script>

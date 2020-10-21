@@ -14,11 +14,19 @@
                     id="nama_pemilik_rumah"
                     name="nama_pemilik_rumah"
                            class="form-control border-dark small mb-3"
-                           placeholder="Masukkan Nama Pemilik Rumah"
+                         
                            value="<?php echo set_value('nama_pemilik_rumah')?>"
                            aria-describedby="basic-addon2">
+                           <input type="text"
+                    id="id_rumah"
+                    name="id_rumah"
+                           class="form-control border-dark small mb-3"
+                         
+                           value="<?= $kode?>"
+                           hidden
+                           aria-describedby="basic-addon2">
                   </div>
-                  <?= form_error('nama_pemilik_rumah', '<small class="text-danger">', '</small>')?> 
+                  <?= form_error('id_rumah', '<small class="text-danger">', '</small>')?> 
               </div>
           </div>
 
@@ -30,7 +38,7 @@
                     id="alamat_lengkap"
                     name="alamat_lengkap"
                            class="form-control border-dark small mb-3"
-                           placeholder="Masukkan Alamat Lengkap"
+                          
                            value="<?php echo set_value('alamat_lengkap')?>"
                            aria-describedby="basic-addon2">
                   </div>
@@ -63,7 +71,7 @@
                     id="luas_tanah"
                     name="luas_tanah"
                            class="form-control border-dark small mb-3"
-                           placeholder="Masukkan Luas Tanah "
+                         
                            value="<?php echo set_value('luas_tanah')?>"
                            aria-describedby="basic-addon2"></textarea>
                   </div>
@@ -79,7 +87,6 @@
                     id="luas_bangunan"
                     name="luas_bangunan"
                           class="form-control border-dark small mb-3"
-                          placeholder="Masukkan Luas Bangunan"
                           value="<?php echo set_value('luas_bangunan')?>"
                           aria-describedby="basic-addon2">
                   </div>
@@ -95,7 +102,6 @@
                     id="harga"
                     name="harga"
                           class="form-control border-dark small mb-3"
-                          placeholder="Masukkan Harga"
                           value="<?php echo set_value('harga')?>"
                           aria-describedby="basic-addon2">
                   </div>
@@ -111,11 +117,66 @@
                     id="no_telp"
                     name="no_telp"
                           class="form-control border-dark small mb-3"
-                          placeholder="Masukkan Nomor Telpon Pemilik"
                           value="<?php echo set_value('no_telp')?>"
                           aria-describedby="basic-addon2">
                   </div>
                   <?= form_error('no_telp', '<small class="text-danger">', '</small>')?> 
+              </div>
+          </div>
+          <div class="row">
+              <div class="col">
+                <p>Sertifikat</p>
+                  <div class="input-group">
+                    <input type="text"
+                    id="sertifikat"
+                    name="sertifikat"
+                          class="form-control border-dark small mb-3"
+                          value="<?php echo set_value('sertifikat')?>"
+                          aria-describedby="basic-addon2">
+                  </div>
+                  <?= form_error('sertifikat', '<small class="text-danger">', '</small>')?> 
+              </div>
+          </div>
+          <div class="row">
+              <div class="col">
+                <p>Air</p>
+                  <div class="input-group">
+                    <input type="text"
+                    id="air"
+                    name="air"
+                          class="form-control border-dark small mb-3"
+                          value="<?php echo set_value('air')?>"
+                          aria-describedby="basic-addon2">
+                  </div>
+                  <?= form_error('air', '<small class="text-danger">', '</small>')?> 
+              </div>
+          </div>
+          <div class="row">
+              <div class="col">
+                <p>Listrik</p>
+                  <div class="input-group">
+                    <input type="text"
+                    id="listrik"
+                    name="listrik"
+                          class="form-control border-dark small mb-3"
+                          value="<?php echo set_value('listrik')?>"
+                          aria-describedby="basic-addon2">
+                  </div>
+                  <?= form_error('listrik', '<small class="text-danger">', '</small>')?> 
+              </div>
+          </div>
+          <div class="row">
+              <div class="col">
+                <p>Kondisi</p>
+                  <div class="input-group">
+                    <input type="text"
+                    id="kondisi"
+                    name="kondisi"
+                          class="form-control border-dark small mb-3"
+                          value="<?php echo set_value('kondisi')?>"
+                          aria-describedby="basic-addon2">
+                  </div>
+                  <?= form_error('kondisi', '<small class="text-danger">', '</small>')?> 
               </div>
           </div>
           <div class="row">
@@ -126,7 +187,6 @@
                     id="deskripsi"
                     name="deskripsi"
                            class="form-control border-dark mb-3"
-                           placeholder="Masukkan Deskripsi "
                            value="<?php echo set_value('deskripsi')?>"
                            aria-describedby="basic-addon2"></textarea>
                   </div>

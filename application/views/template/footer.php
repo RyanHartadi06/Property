@@ -73,8 +73,108 @@
   <script src="<?= base_url("assets/js/demo/datatables-demo.js")?>"></script>
   <script src="<?= base_url("assets/js/demo/chart-area-demo.js")?>"></script>
   <script src="<?= base_url("assets/js/demo/chart-pie-demo.js")?>"></script>
+  <!-- <script src="<?= base_url("assets/js/loadrumah.js") ?>"></script> -->
 
   <script>
+  loadrumah();
+  function loadrumah() {
+        $.ajax({
+          url : "<?php echo base_url()."Data_rumah/data_awal"?>",
+          dataType:"json",
+          success : function (data) {
+            var baris='';
+                    var status = ['','<div class="badge badge-primary badge-pill">Tersedia</div>','<div class="badge badge-warning badge-pill">Sold Out</div>','<div class="badge badge-success badge-pill">Selesai</div>','<div class="badge badge-danger badge-pill">Batal</div>'];
+                    for(var i=0;i<data.length;i++){
+                       baris+= '<tr>'+
+                                '<td>'+ data[i].nama_pemilik_rumah+'</td>'+
+                                '<td>'+ data[i].alamat_lengkap+'</td>'+
+                                '<td>'+ data[i].luas_tanah+'</td>'+
+                                '<td>'+ data[i].luas_bangunan +'</td>'+
+                                '<td>'+ data[i].harga +'</td>'+
+                               
+                                '<td>'+ status[data[i].status] +'</td>'+
+                                '<td><a href="Data_Rumah/detail_rumah/'+data[i].id_rumah+'" class="btn btn-sm btn-primary btn-circle"><i class="fas fa-plus"></i></a><a href="Data_Rumah/edit/'+data[i].id_rumah+'"  class="btn btn-sm btn-info btn-circle"><i class="fa fa-pencil-alt"></i></a><a onclick="confirm_modal('+"'Data_Rumah/hapus/"+data[i].id_rumah+"'"+')" href=""  data-toggle="modal" data-target="#hapusModal"class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a></td>'
+                    
+                              '</tr>'
+                      }
+                      $('#target').html(baris);
+          }
+        })
+      }
+      $(document).ready(function(){
+              $("#dataStatus").change(function(){
+              let dataStatus = $(this).val();
+              if (dataStatus == "3") {
+                loadrumah();
+              }else{
+                data_hasil(dataStatus);
+              }
+          });
+        });
+      $(document).ready(function(){
+              $("#datakategori").change(function(){
+              let datakategori = $(this).val();
+              console.log(datakategori);
+              if(datakategori == '99'){
+                loadrumah();
+              }else {
+                kategori(datakategori)
+              }
+          });
+      });
+        function data_hasil(dataStatus) {
+                $.ajax({
+                  url : "<?php echo base_url()."Data_rumah/filter"?>",
+                  data : "dataStatus=" + dataStatus,
+                  dataType:"json",
+                  success : function (dataStatus) {
+                    var baris='';
+                    var status = ['','<div class="badge badge-primary badge-pill">Tersedia</div>','<div class="badge badge-warning badge-pill">Sold Out</div>','<div class="badge badge-success badge-pill">Selesai</div>','<div class="badge badge-danger badge-pill">Batal</div>'];
+                    for(var i=0;i<dataStatus.length;i++){
+                       baris+= '<tr>'+
+                                '<td>'+ dataStatus[i].nama_pemilik_rumah+'</td>'+
+                                '<td>'+ dataStatus[i].alamat_lengkap+'</td>'+
+                                '<td>'+ dataStatus[i].luas_tanah+'</td>'+
+                                '<td>'+ dataStatus[i].luas_bangunan +'</td>'+
+                                '<td>'+ dataStatus[i].harga +'</td>'+
+                               
+                                '<td>'+ status[dataStatus[i].status] +'</td>'+
+                                '<td><a href="Data_Rumah/detail_rumah/'+dataStatus[i].id_rumah+'" class="btn btn-sm btn-primary btn-circle"><i class="fas fa-plus"></i></a><a href="booking/edit/'+dataStatus[i].ID_BOOKING+'"  class="btn btn-sm btn-info btn-circle"><i class="fa fa-pencil-alt"></i></a><a onclick="confirm_modal('+"'Data_Rumah/hapus/"+dataStatus[i].id_rumah+"'"+')" href=""  data-toggle="modal" data-target="#hapusModal"class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a></td>'
+                    
+                              '</tr>'
+                      }
+                      $('#target').html(baris);
+                  }
+                });
+              }
+            function kategori(datakategori) {
+                $.ajax({
+                  url : "<?php echo base_url()."Data_rumah/filterkat"?>",
+                  data : "datakategori=" + datakategori,
+                  dataType:"json",
+                  success : function (datakategori) {
+                    var baris='';
+                    var status = ['','<div class="badge badge-primary badge-pill">Tersedia</div>','<div class="badge badge-warning badge-pill">Sold Out</div>','<div class="badge badge-success badge-pill">Selesai</div>','<div class="badge badge-danger badge-pill">Batal</div>'];
+                    for(var i=0;i<datakategori.length;i++){
+                       baris+= '<tr>'+
+                                '<td>'+ datakategori[i].nama_pemilik_rumah+'</td>'+
+                                '<td>'+ datakategori[i].alamat_lengkap+'</td>'+
+                                '<td>'+ datakategori[i].luas_tanah+'</td>'+
+                                '<td>'+ datakategori[i].luas_bangunan +'</td>'+
+                                '<td>'+ datakategori[i].harga +'</td>'+
+                               
+                                '<td>'+ status[datakategori[i].status] +'</td>'+
+                                '<td><a href="Data_Rumah/detail_rumah/'+datakategori[i].id_rumah+'" class="btn btn-sm btn-primary btn-circle"><i class="fas fa-plus"></i></a><a href="booking/edit/'+datakategori[i].ID_BOOKING+'"  class="btn btn-sm btn-info btn-circle"><i class="fa fa-pencil-alt"></i></a><a onclick="confirm_modal('+"'Data_Rumah/hapus/"+datakategori[i].id_rumah+"'"+')" href=""  data-toggle="modal" data-target="#hapusModal"class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a></td>'
+                    
+                              '</tr>'
+                      }
+                      $('#target').html(baris);
+                  }
+                });
+              }
+
+//====================================================================================//
+      //ini grafik
     // Set new default font family and font color to mimic Bootstrap's default styling
     Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
     Chart.defaults.global.defaultFontColor = '#858796';
