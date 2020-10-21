@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->library('form_validation');
             $this->load->model('Maksi' , 'v');
             // $this->load->library('curl');
-            // is_logged_in();
+            belumlogin();
         }
         public function index()
         {

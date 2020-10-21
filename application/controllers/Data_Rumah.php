@@ -8,7 +8,7 @@ class Data_Rumah extends CI_Controller
         $this->load->library('form_validation');
         $this->load->model('Maksi', 'v');
         // $this->load->library('curl');
-        // is_logged_in();
+        belumlogin();
         $this->load->helper('url');
     }
     public function index()

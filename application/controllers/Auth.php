@@ -7,7 +7,7 @@
             $this->load->library('form_validation');
             $this->load->model('Maksi' , 'v');
             // $this->load->library('curl');
-            // is_logged_in();
+            // belumlogin();
         }
         public function index(){
             $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
@@ -100,8 +100,7 @@
         }
         public function logout()
         {
-            $this->session->unset_userdata('Email');
-            $this->session->unset_userdata('Status');
+            $this->session->unset_userdata('nama_pengguna');
     
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Your account has been logged out!
