@@ -9,7 +9,7 @@
             // $this->load->library('curl');
             // is_logged_in();
         }
-        public function Login(){
+        public function index(){
             $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
             $this->form_validation->set_rules('password', 'Password', 'required|trim');
             if ($this->form_validation->run() == false) {
@@ -106,7 +106,7 @@
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Your account has been logged out!
             </div>');
-            redirect('Auth/Login');
+            redirect('Auth');
         }
     }
    
