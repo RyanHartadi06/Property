@@ -16,7 +16,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['totalAgent'] = $this->v->getTotal('agent');
             $data['tersedia'] = $this->v->getTotal2('rumah' , 1);
             $data['terjual'] = $this->v->getTotal2('rumah' , 2);
-            $query =  $this->db->query("SELECT COUNT(`id_rumah`) as count,MONTHNAME(createdDate) as month_name FROM rumah  WHERE Status = '2'
+            $yearNOW = date('Y');
+            $query =  $this->db->query("SELECT COUNT(`id_rumah`) as count,MONTHNAME(createdDate) as month_name FROM rumah  WHERE Status = '2' AND createdDate LIKE '$yearNOW%'
             GROUP BY MONTH(createdDate)")->result(); 
             //SELECT COUNT(`id_rumah`) as count,DAY(createdDate) as day FROM rumah WHERE Status = '2'GROUP BY DAY(createdDate)
             //SELECT COUNT(`id_rumah`) as count,YEAR(createdDate) as year FROM rumah WHERE Status = '2'GROUP BY YEAR(createdDate)
@@ -38,8 +39,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['totalAgent'] = $this->v->getTotal('agent');
             $data['tersedia'] = $this->v->getTotal2('rumah' , 1);
             $data['terjual'] = $this->v->getTotal2('rumah' , 2);
-            $query =  $this->db->query("SELECT COUNT(`id_rumah`) as count,DAY(createdDate) as day FROM rumah WHERE Status = '2'GROUP BY DAY(createdDate)")->result(); 
+            $yearNOW = date('Y');
+            $query =  $this->db->query("SELECT COUNT(`id_rumah`) as count,DAY(createdDate) as day , YEAR(createdDate) as year FROM rumah WHERE Status = '2' AND createdDate LIKE '$yearNOW%' GROUP BY DAY(createdDate)")->result(); 
             //SELECT COUNT(`id_rumah`) as count,DAY(createdDate) as day FROM rumah WHERE Status = '2'GROUP BY DAY(createdDate)
+            // echo json_encode($query);
             //SELECT COUNT(`id_rumah`) as count,YEAR(createdDate) as year FROM rumah WHERE Status = '2'GROUP BY YEAR(createdDate)
             foreach($query as $row) {
                 $data['label'][] = $row->day;
