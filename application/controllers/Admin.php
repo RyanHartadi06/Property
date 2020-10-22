@@ -18,9 +18,52 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['terjual'] = $this->v->getTotal2('rumah' , 2);
             $query =  $this->db->query("SELECT COUNT(`id_rumah`) as count,MONTHNAME(createdDate) as month_name FROM rumah  WHERE Status = '2'
             GROUP BY MONTH(createdDate)")->result(); 
-            
+            //SELECT COUNT(`id_rumah`) as count,DAY(createdDate) as day FROM rumah WHERE Status = '2'GROUP BY DAY(createdDate)
+            //SELECT COUNT(`id_rumah`) as count,YEAR(createdDate) as year FROM rumah WHERE Status = '2'GROUP BY YEAR(createdDate)
             foreach($query as $row) {
                 $data['label'][] = $row->month_name;
+                $data['data'][] = (int) $row->count;
+            }
+            $data['chart_data'] = json_encode($data);
+            
+            $this->load->view("template/sidebar" , $data);
+            $this->load->view("template/header",$data);
+            $this->load->view("template/dashboard",$data);
+            $this->load->view("template/footer");
+        }
+        public function filterhari()
+        {
+            $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
+            $this->session->userdata('email')])->row_array(); 
+            $data['totalAgent'] = $this->v->getTotal('agent');
+            $data['tersedia'] = $this->v->getTotal2('rumah' , 1);
+            $data['terjual'] = $this->v->getTotal2('rumah' , 2);
+            $query =  $this->db->query("SELECT COUNT(`id_rumah`) as count,DAY(createdDate) as day FROM rumah WHERE Status = '2'GROUP BY DAY(createdDate)")->result(); 
+            //SELECT COUNT(`id_rumah`) as count,DAY(createdDate) as day FROM rumah WHERE Status = '2'GROUP BY DAY(createdDate)
+            //SELECT COUNT(`id_rumah`) as count,YEAR(createdDate) as year FROM rumah WHERE Status = '2'GROUP BY YEAR(createdDate)
+            foreach($query as $row) {
+                $data['label'][] = $row->day;
+                $data['data'][] = (int) $row->count;
+            }
+            $data['chart_data'] = json_encode($data);
+            
+            $this->load->view("template/sidebar" , $data);
+            $this->load->view("template/header",$data);
+            $this->load->view("template/dashboard",$data);
+            $this->load->view("template/footer");
+        }
+        public function filtertahun()
+        {
+            $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
+            $this->session->userdata('email')])->row_array(); 
+            $data['totalAgent'] = $this->v->getTotal('agent');
+            $data['tersedia'] = $this->v->getTotal2('rumah' , 1);
+            $data['terjual'] = $this->v->getTotal2('rumah' , 2);
+            $query =  $this->db->query("SELECT COUNT(`id_rumah`) as count,YEAR(createdDate) as year FROM rumah WHERE Status = '2'GROUP BY YEAR(createdDate)")->result(); 
+            //SELECT COUNT(`id_rumah`) as count,DAY(createdDate) as day FROM rumah WHERE Status = '2'GROUP BY DAY(createdDate)
+            //SELECT COUNT(`id_rumah`) as count,YEAR(createdDate) as year FROM rumah WHERE Status = '2'GROUP BY YEAR(createdDate)
+            foreach($query as $row) {
+                $data['label'][] = $row->year;
                 $data['data'][] = (int) $row->count;
             }
             $data['chart_data'] = json_encode($data);

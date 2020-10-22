@@ -42,7 +42,7 @@
                             <td><?= $row['nama_agent']?></td>
                             <td><?= $row['no_wa']?></td>
                             <td><?= $row['instagram']?></td>
-                            <td><?= $row['facebook']?>m</td>
+                            <td><?= $row['facebook']?></td>
                             <td><?= $row['email']?></td>
                             <td>
                                 <a href="<?php echo base_url("Agency/edit/" .$row['id_agent']);?>"

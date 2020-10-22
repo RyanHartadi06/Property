@@ -13,7 +13,7 @@
                     id="nama"
                     name="nama"
                            class="form-control border-dark small mb-3"
-                           placeholder="Masukkan Nama nama Property"
+                           placeholder="Masukkan Nama Agency"
                            value="<?php echo set_value('nama')?>"
                            aria-describedby="basic-addon2">
                   </div>
@@ -28,7 +28,7 @@
                     id="no"
                     name="no"
                            class="form-control border-dark small mb-3"
-                           placeholder="Masukkan Nama no Property"
+                           placeholder="Masukkan Nomor Whatsapp"
                            value="<?php echo set_value('no')?>"
                            aria-describedby="basic-addon2">
                   </div>
@@ -43,7 +43,7 @@
                     id="ig"
                     name="ig"
                            class="form-control border-dark small mb-3"
-                           placeholder="Masukkan Nama ig Property"
+                           placeholder="Masukkan Instagram"
                            value="<?php echo set_value('ig')?>"
                            aria-describedby="basic-addon2">
                   </div>
@@ -58,7 +58,7 @@
                     id="facebook"
                     name="facebook"
                            class="form-control border-dark small mb-3"
-                           placeholder="Masukkan Nama facebook Property"
+                           placeholder="Masukkan Facebook"
                            value="<?php echo set_value('facebook')?>"
                            aria-describedby="basic-addon2">
                   </div>
@@ -73,7 +73,7 @@
                     id="email"
                     name="email"
                            class="form-control border-dark small mb-3"
-                           placeholder="Masukkan Nama email Property"
+                           placeholder="Masukkan Email"
                            value="<?php echo set_value('email')?>"
                            aria-describedby="basic-addon2">
                   </div>

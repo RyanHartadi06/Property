@@ -60,6 +60,7 @@ class Data_Rumah extends CI_Controller
                     'id_rumah' => $kd,
                     'nama_pemilik_rumah' => $this->input->post('nama_pemilik_rumah'),
                     'alamat_lengkap' => $this->input->post('alamat_lengkap'),
+                    'no_telp' => $this->input->post('no_telp'),
                     'deskripsi' => $this->input->post('desc'),
                     'jumlah_kamar' => $this->input->post('jumlah_kamar'),
                     'luas_tanah' => $this->input->post('luas_tanah'),
@@ -78,7 +79,7 @@ class Data_Rumah extends CI_Controller
                 if ($this->v->insert('rumah', $insert)) {
                     $this->add_image($kd);
                     $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-                        Berita Berhasil Ditambahkan
+                        Rumah Berhasil Ditambahkan
                         </div>');
                     redirect('Data_Rumah');
                 } else {
