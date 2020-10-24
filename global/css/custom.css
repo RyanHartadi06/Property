@@ -1,0 +1,101 @@
+.card {
+    /* border: 1px solid #e5e8ef; */
+    margin-bottom: 30px;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    /* background-color: #fff; */
+    background-clip: border-box;
+    /* border: 1px solid rgba(0,0,0,.125); */
+    border-radius: .25rem;
+}
+
+.modern-list .property_meta {
+    display: flex;
+    margin: 0;
+    position: absolute;
+    left: 1px;
+    bottom: 11rem;
+    align-items: center;
+    width: 100%;
+    padding: 12px 20px;
+}
+
+.cate-trix {
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+    font-weight: 400;
+    font-size: 14px;
+    background: #140c40;
+    color: #fff !important;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+@media only screen and (max-width: 768px) {
+    .modern-list .property_meta {
+        display: flex;
+        margin: 0;
+        position: absolute;
+        left: 1px;
+        bottom: 9.8rem;
+        align-items: center;
+        width: 100%;
+        padding: 12px 20px;
+    }
+}
+
+/* footer.dark-footer {
+    background: #f1f6fc
+} */
+
+/* footer.skin-dark-footer .footer_widget ul li a, footer.skin-dark-footer, footer.skin-dark-footer a {
+    color: #f9bcb0;
+    transition: all ease .4s;
+    font-size: 14px;
+} */
+
+footer.skin-dark-footer h4 {
+    color: #ff7f66;
+}
+
+.skin-dark-footer .footer-bottom {
+    background: #fff;
+    border-top: none;
+}
+
+/* custom  */
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
