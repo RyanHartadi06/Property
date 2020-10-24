@@ -25,7 +25,10 @@ class Data_Rumah extends CI_Controller
     public function data_awal(){
 	    $query = $this->db->query("SELECT * FROM rumah")->result();
 		echo json_encode($query);
-            
+    }
+    public function data_detail($id){
+	    $query = $this->db->query("SELECT * FROM detail_rumah WHERE id_rumah = '$id'")->result();
+		echo json_encode($query);
 	}
     public function add()
     {
@@ -193,7 +196,7 @@ class Data_Rumah extends CI_Controller
         ),"id_rumah","rumah", $id);
         if($update){
             $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-            Berhasil Mengubah Data!
+            Rumah Ditandai Sebagai Terjual
             </div>');
             redirect('Data_Rumah');
         }else {

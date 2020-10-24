@@ -13,7 +13,7 @@
                     id="title"
                     name="title"
                            class="form-control border-dark small mb-3"
-                           placeholder="Masukkan Nama title Property"
+                    
                            value="<?php echo set_value('title')?>"
                            aria-describedby="basic-addon2">
                   </div>
@@ -28,7 +28,6 @@
                     id="desc"
                     name="desc"
                            class="form-control border-dark small mb-3"
-                           placeholder="Masukkan Nama desc Property"
                            value="<?php echo set_value('desc')?>"
                            aria-describedby="basic-addon2"></textarea>
                   </div>
@@ -43,7 +42,6 @@
                     id="icon"
                     name="icon"
                            class="form-control border-dark small mb-3"
-                           placeholder="Masukkan Nama icon Property"
                            value="<?php echo set_value('icon')?>"
                            aria-describedby="basic-addon2">
                   </div>

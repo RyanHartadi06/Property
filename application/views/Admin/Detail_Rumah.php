@@ -155,16 +155,23 @@
                 value="<?php echo $d['kondisi'] ?>"
                 disabled>
         </div>
+      
+            <?php if($d['status'] == 1){?>
+                <a href="<?php echo site_url('Data_Rumah/accepted/'.$d['id_rumah']) ?>" class="btn btn-success btn-icon-split">
+                    <span class="icon text-white-50">
+                    <i class="fas fa-pen"></i>
+                    </span>
+                    <span class="text">Tandai Sebagai Terjual</span>
+                </a>
+            <?php }else { ?>
+                <a href="#" class="btn btn-primary btn-icon-split">
+                    <span class="icon text-white-50">
+                    <i class="fas fa-check"></i>
+                    </span>
+                    <span class="text">Sudah Terjual</span>
+                </a>
+            <?php } ?>
         <?php } ?>
-        <?php if($d['status'] == 1){?>
-            <a href="<?php echo site_url('Data_Rumah/accepted/'.$d['id_rumah']) ?>" class="btn btn-success btn-icon-split">
-                <span class="icon text-white-50">
-                <i class="fas fa-check"></i>
-                </span>
-                <span class="text">Tandai Sebagai Terjual</span>
-            </a>
-        <?php } ?>
-        
         <a href="<?php echo site_url('Data_Rumah') ?>" class="btn btn-danger btn-icon-split">
             <span class="icon text-white-50">
             <i class="fas fa-reply"></i>

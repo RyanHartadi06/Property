@@ -106,6 +106,7 @@
       $(document).ready(function(){
               $("#dataStatus").change(function(){
               let dataStatus = $(this).val();
+              let datakategori = $('#datakategori').val();
               if (dataStatus == "3") {
                 loadrumah();
               }else{
@@ -116,7 +117,7 @@
       $(document).ready(function(){
               $("#datakategori").change(function(){
               let datakategori = $(this).val();
-              console.log(datakategori);
+              // console.log(datakategori);
               if(datakategori == '99'){
                 loadrumah();
               }else {
