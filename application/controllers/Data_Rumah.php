@@ -134,6 +134,7 @@ class Data_Rumah extends CI_Controller
                 'alamat_lengkap' => $this->input->post("alamat"),
                 'deskripsi' => $this->input->post("desc"),
                 'jumlah_kamar' => $this->input->post("kamar"),
+                'kamar_mandi' => $this->input->post("kamar_mandi"),
                 'luas_tanah' => $this->input->post("tanah"),
                 'harga' => $this->input->post("harga"),
                 'no_telp' => $this->input->post("no_telp"),
@@ -143,6 +144,7 @@ class Data_Rumah extends CI_Controller
                 'kondisi' => $this->input->post("kondisi"),
                 'id_agent' => $this->input->post("agent"),
                 'id_kategori' => $this->input->post("kategori"),
+                'status_property' => $this->input->post("status_property"),
                 'populer' => 0
             ), "id_rumah", "rumah", $id);
 

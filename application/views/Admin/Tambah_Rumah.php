@@ -208,10 +208,11 @@
 
 </form>
 
-<script>
+<!-- <script>
   var dengan_rupiah = document.getElementById('harga');
   dengan_rupiah.addEventListener('keyup', function(e) {
     dengan_rupiah.value = formatRupiah(this.value);
+    // console.log(dengan_rupiah.value);
   });
 
   /* Fungsi */
@@ -221,7 +222,7 @@
       sisa = split[0].length % 3,
       rupiah = split[0].substr(0, sisa),
       ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
+      console.log(ribuan);
     if (ribuan) {
       separator = sisa ? '.' : '';
       rupiah += separator + ribuan.join('.');
@@ -230,4 +231,4 @@
     rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
     return prefix == undefined ? rupiah : (rupiah ? +rupiah : '');
   }
-</script>
+</script> -->
