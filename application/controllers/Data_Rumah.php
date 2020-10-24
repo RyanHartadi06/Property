@@ -14,7 +14,7 @@ class Data_Rumah extends CI_Controller
     public function index()
     {
         $data['Pengguna'] = $this->db->get_where('pengguna', ['email' =>
-            $this->session->userdata('email')])->row_array();
+        $this->session->userdata('email')])->row_array();
         $data['data'] = $this->v->getdata('rumah');
         $data['kategori'] = $this->v->getData('kategori');
         $this->load->view("template/sidebar", $data);
@@ -22,14 +22,16 @@ class Data_Rumah extends CI_Controller
         $this->load->view("Admin/Data_Rumah", $data);
         $this->load->view("template/footer");
     }
-    public function data_awal(){
-	    $query = $this->db->query("SELECT * FROM rumah")->result();
-		echo json_encode($query);
+    public function data_awal()
+    {
+        $query = $this->db->query("SELECT * FROM rumah")->result();
+        echo json_encode($query);
     }
-    public function data_detail($id){
-	    $query = $this->db->query("SELECT * FROM detail_rumah WHERE id_rumah = '$id'")->result();
-		echo json_encode($query);
-	}
+    public function data_detail($id)
+    {
+        $query = $this->db->query("SELECT * FROM detail_rumah WHERE id_rumah = '$id'")->result();
+        echo json_encode($query);
+    }
     public function add()
     {
         $this->form_validation->set_rules('nama_pemilik_rumah', 'Pemilik Rumah', 'required');
@@ -38,11 +40,11 @@ class Data_Rumah extends CI_Controller
         if ($this->form_validation->run() == false) {
 
             $data['Pengguna'] = $this->db->get_where('pengguna', ['email' =>
-                $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
             $data['data'] = $this->v->getdata('rumah');
             $data['kat'] = $this->v->getdata('kategori');
             $data['agent'] = $this->v->getdata('agent');
-            $data['kode'] = rand(111,999);
+            $data['kode'] = rand(111, 999);
             $this->load->view("template/sidebar", $data);
             $this->load->view("template/header", $data);
             $this->load->view("Admin/Tambah_Rumah", $data);
@@ -69,13 +71,16 @@ class Data_Rumah extends CI_Controller
                     'luas_tanah' => $this->input->post('luas_tanah'),
                     'luas_bangunan' => $this->input->post('luas_bangunan'),
                     'harga' => $this->input->post('harga'),
+                    'kamar_mandi' => $this->input->post('kamar_mandi'),
                     'banner' => $foto_namaBaru,
+                    'populer' => 0,
                     'id_agent' => $this->input->post('agent'),
                     'id_kategori' => $this->input->post('kat'),
                     'sertifikat' => $this->input->post('sertifikat'),
                     'air' => $this->input->post('air'),
                     'listrik' => $this->input->post('listrik'),
                     'kondisi' => $this->input->post('kondisi'),
+                    'status_property' => $this->input->post('status_property'),
                     'createdDate' => date('Y-m-d'),
                     'status' => 1,
                 );
@@ -97,7 +102,8 @@ class Data_Rumah extends CI_Controller
             }
         }
     }
-    public function detail_rumah($id){
+    public function detail_rumah($id)
+    {
         $data['Pengguna'] = $this->db->get_where('pengguna', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['data'] = $this->v->getDetailDataRumah($id);
@@ -107,8 +113,9 @@ class Data_Rumah extends CI_Controller
         $this->load->view("Admin/Detail_Rumah", $data);
         $this->load->view("template/footer");
     }
-    public function edit($id){
-        $this->form_validation->set_rules('desc' , 'Description' , 'required');
+    public function edit($id)
+    {
+        $this->form_validation->set_rules('desc', 'Description', 'required');
         if ($this->form_validation->run() == false) {
             $data['Pengguna'] = $this->db->get_where('pengguna', ['email' =>
             $this->session->userdata('email')])->row_array();
@@ -120,8 +127,8 @@ class Data_Rumah extends CI_Controller
             $this->load->view("template/header", $data);
             $this->load->view("Admin/Update_Rumah", $data);
             $this->load->view("template/footer");
-        }else {
-            
+        } else {
+
             $update = $this->v->ubahdata2(array(
                 'nama_pemilik_rumah' => $this->input->post("nama"),
                 'alamat_lengkap' => $this->input->post("alamat"),
@@ -136,20 +143,21 @@ class Data_Rumah extends CI_Controller
                 'kondisi' => $this->input->post("kondisi"),
                 'id_agent' => $this->input->post("agent"),
                 'id_kategori' => $this->input->post("kategori"),
-            ), "id_rumah","rumah", $id);
+                'populer' => 0
+            ), "id_rumah", "rumah", $id);
 
-            if($update){
+            if ($update) {
                 $ubahfoto = $_FILES['logo']['name'];
-    
+
                 if ($ubahfoto) {
                     $config['allowed_types'] = 'jpg|png|gif';
                     $config['max_size'] = '2048';
                     $config['upload_path'] = './uploads/rumah/';
-    
+
                     $this->load->library('upload', $config);
-    
+
                     if ($this->upload->do_upload('logo')) {
-                        $user = $this->db->get_where('rumah', ['id_rumah'=>$id])->row_array();
+                        $user = $this->db->get_where('rumah', ['id_rumah' => $id])->row_array();
                         $fotolama = $user['banner'];
                         if ($fotolama) {
                             unlink(FCPATH . '/uploads/rumah/' . $fotolama);
@@ -160,8 +168,8 @@ class Data_Rumah extends CI_Controller
                         $this->db->update('rumah');
                     } else {
                         $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">'
-                        . $this->upload->display_errors() .
-                        '</div>');
+                            . $this->upload->display_errors() .
+                            '</div>');
                         // redirect('user/editprofile');
                         redirect('Data_Rumah');
                     }
@@ -170,36 +178,38 @@ class Data_Rumah extends CI_Controller
                 Berhasil Mengubah Data!
                 </div>');
                 redirect('Data_Rumah');
-            }else{
+            } else {
                 $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
                 Gagal Mengubah Data!
                 </div>');
                 redirect('Data_Rumah');
             }
-            
         }
     }
-    public function filter(){
-		$status = $_GET['dataStatus'];
-		$query = $this->db->query("SELECT * FROM rumah WHERE status = '$status'")->result();
-		echo json_encode($query);
+    public function filter()
+    {
+        $status = $_GET['dataStatus'];
+        $query = $this->db->query("SELECT * FROM rumah WHERE status = '$status'")->result();
+        echo json_encode($query);
     }
-    public function filterkat(){
-		$datakategori = $_GET['datakategori'];
-		$query = $this->db->query("SELECT * FROM rumah WHERE id_kategori = '$datakategori'")->result();
-		echo json_encode($query);
-	}
-    public function accepted($id){
+    public function filterkat()
+    {
+        $datakategori = $_GET['datakategori'];
+        $query = $this->db->query("SELECT * FROM rumah WHERE id_kategori = '$datakategori'")->result();
+        echo json_encode($query);
+    }
+    public function accepted($id)
+    {
         $update = $this->v->ubahdata2(array(
             'status' => 2,
             'createdDate' => date('Y-m-d'),
-        ),"id_rumah","rumah", $id);
-        if($update){
+        ), "id_rumah", "rumah", $id);
+        if ($update) {
             $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
             Rumah Ditandai Sebagai Terjual
             </div>');
             redirect('Data_Rumah');
-        }else {
+        } else {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
             Gagal Mengubah Data!
             </div>');
@@ -212,7 +222,7 @@ class Data_Rumah extends CI_Controller
         $kode = $this->v->randomkode(32);
         if ($this->form_validation->run() == false) {
             $data['Pengguna'] = $this->db->get_where('pengguna', ['email' =>
-                $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
             $data['data'] = $this->v->getDetail($id);
             $data['rumah'] = $this->v->getDataGambar('detail_rumah', $id);
             $this->load->view("template/sidebar", $data);
@@ -265,7 +275,7 @@ class Data_Rumah extends CI_Controller
                             $data['id_detail_rumah'] = rand(111, 999);
                             $data['id_rumah'] = $id;
                             $data['gambar'] = $uploadData['file_name'];
-                            $this->db->insert('detail_rumah',$data);
+                            $this->db->insert('detail_rumah', $data);
                             // echo json_encode($data);
                             // "<pre>".print_r($data)."</pre>";
                             //  if($data){
@@ -282,9 +292,7 @@ class Data_Rumah extends CI_Controller
                         }
                     }
                 }
-
             }
-
         }
     }
     public function hapus($id)

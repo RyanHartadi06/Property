@@ -30,19 +30,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->load->view("Admin/Tambah_Kategori");
                 $this->load->view("template/footer");
             }else {
-                $insert = array(
-                    'id' => $kode,
-                    'name' => $this->input->post('kategori'),
-                );
-                if ($this->v->insert('kategori' ,$insert)) {
-                    $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">
-                    Kategori Berhasil Ditambahkan
-                    </div>');
-                    redirect('Kategori');
-                }else{
-                    $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">GAGAL</div>');
-                    redirect('Kategori');
-                }	
+                $gambar = $_FILES['gambar']['name'];
+
+                $config['allowed_types'] = 'jpg|png|gif|jpeg';
+                $config['max_size'] = '2048';
+                $config['upload_path'] = './uploads/kategori';
+                $this->load->library('upload', $config);
+                if ($this->upload->do_upload('foto')) {
+                    $foto_namaBaru = $this->upload->data('file_name');
+                    $insert = array(
+                        'id' => $kode,
+                        'name' => $this->input->post('kategori'),
+                        'image' => $foto_namaBaru,
+                    );
+                    if ($this->v->insert('kategori' ,$insert)) {
+                        $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">
+                         Kategori Berhasil Ditambahkan
+                        </div>');
+                        redirect('Kategori');
+                    }else{
+                        $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">GAGAL</div>');
+                        redirect('Kategori');
+                    }	
+                }else {
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">'
+                    . $this->upload->display_errors() .
+                    '</div>');
+                redirect('Kategori');
+                }  
             }
         }
         public function edit($id){
@@ -61,11 +76,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'name' => $this->input->post("kategori"),
                 ),"id","kategori", $id);
                 if($update){
+                    $ubahfoto = $_FILES['logo']['name'];
+        
+                    if ($ubahfoto) {
+                        $config['allowed_types'] = 'jpg|png|gif';
+                        $config['max_size'] = '2048';
+                        $config['upload_path'] = './uploads/kategori/';
+        
+                        $this->load->library('upload', $config);
+        
+                        if ($this->upload->do_upload('logo')) {
+                            $user = $this->db->get_where('kategori', ['id'=>$id])->row_array();
+                            $fotolama = $user['image'];
+                            if ($fotolama) {
+                                unlink(FCPATH . '/uploads/kategori/' . $fotolama);
+                            }
+                            $fotobaru = $this->upload->data('file_name');
+                            $this->db->set('image', $fotobaru);
+                            $this->db->where('id', $id);
+                            $this->db->update('kategori');
+                        } else {
+                            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">'
+                            . $this->upload->display_errors() .
+                            '</div>');
+                            // redirect('user/editprofile');
+                            redirect('Kategori');
+                        }
+                    }
                     $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
                     Berhasil Mengubah Data!
                     </div>');
                     redirect('Kategori');
-                }else {
+                }else{
                     $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
                     Gagal Mengubah Data!
                     </div>');

@@ -20,6 +20,19 @@
                   <?= form_error('kategori', '<small class="text-danger">', '</small>')?> 
               </div>
           </div>
+          <div class="row">
+                <div class="col">
+                    <p>Logo</p>
+                    <div class="input-group">
+                        <input type="file"
+                        id="foto"
+                        name="foto"
+                            class="form-control border-dark small mb-3"
+                            value="<?php echo set_value('foto')?>"
+                            aria-describedby="basic-addon2">
+                        </div>
+                </div>
+            </div>
               <br />
               <button type="submit" class="btn btn-info btn-icon-split">
                 <span class="icon text-white-50">

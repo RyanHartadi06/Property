@@ -25,6 +25,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Kategori</th>
+                        <th>Logo</th>
                         <th>Aksi</th> 
                     </tr>
                 </thead>
@@ -36,6 +37,7 @@
                         <tr>
                             <td><?= $no++?></td>
                             <td><?= $row['name']?></td>
+                            <td><img src="<?= base_url('uploads/kategori/') . $row['image']; ?>" alt="" srcset="" style="width:120px"></td>
                             <td>
                                 <a href="<?php echo base_url("kategori/edit/" .$row['id']);?>"
                                 class="btn btn-sm btn-success btn-circle">

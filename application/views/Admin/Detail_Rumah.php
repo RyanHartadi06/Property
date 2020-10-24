@@ -65,6 +65,16 @@
                 value="<?php echo $d['jumlah_kamar'] ?>"
                 disabled>
         </div>
+        <p>Jumlah Kamar Mandi</p>
+        <div class="input-group">
+            <input name="nama"
+                id="nama"
+                type="text"
+                class="form-control border-dark small mb-3"
+                aria-describedby="basic-addon2"
+                value="<?php echo $d['kamar_mandi'] ?>"
+                disabled>
+        </div>
         <p>Luas Tanah</p>
         <div class="input-group">
             <input name="nama"
@@ -155,6 +165,28 @@
                 value="<?php echo $d['kondisi'] ?>"
                 disabled>
         </div>
+        <p>Status</p>
+        <?php if ($d['status_property'] == 1){?>
+            <div class="input-group">
+            <input name="nama"
+                id="nama"
+                type="text"
+                class="form-control border-dark small mb-3"
+                aria-describedby="basic-addon2"
+                value="Dijual"
+                disabled>
+        </div>
+        <?php } else {?>
+            <div class="input-group">
+            <input name="nama"
+                id="nama"
+                type="text"
+                class="form-control border-dark small mb-3"
+                aria-describedby="basic-addon2"
+                value="Sewa"
+                disabled>
+        </div>
+        <?php }?>
       
             <?php if($d['status'] == 1){?>
                 <a href="<?php echo site_url('Data_Rumah/accepted/'.$d['id_rumah']) ?>" class="btn btn-success btn-icon-split">
