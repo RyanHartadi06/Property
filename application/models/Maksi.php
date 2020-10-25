@@ -12,6 +12,9 @@
       public function getData2($id){
         return $this->db->query("SELECT r.* , a.nama_agent , a.id_agent,k.id, k.name FROM rumah r , kategori k , agent a WHERE r.id_agent = a.id_agent AND r.id_kategori = k.id AND r.id_rumah = '$id'")->result_array();
       }
+      public function feedBack($st){
+        return $query = $this->db->query("SELECT * FROM feedback WHERE status = '$st'")->result_array();
+      }
       public function getDetailProf($tb , $column , $id){
         return $query = $this->db->query("SELECT * FROM $tb WHERE $column = '$id'")->result_array();
       }

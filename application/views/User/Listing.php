@@ -159,7 +159,7 @@
 												<h4 class="pr-property_title mb-1"><a href="<?= base_url() ?>detailProduct/<?= $l->id_rumah; ?>"><?= $l->nama_pemilik_rumah; ?></a></h4>
 											<div class="listing-location-name"><a href="single-property-1.html"><?= $l->alamat_lengkap; ?></a></div>
 										</div>
-										<div class="property-real-price"><a href="single-property-1.html" class="cl-blue">Rp <?= number_format($l->harga,0,',','.'); ?></a></div>
+										<div class="property-real-price"><a href="single-property-1.html" class="cl-blue">Rp <?= $l->harga ?></a></div>
 											</div>
 										</div>
 										

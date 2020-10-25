@@ -20,7 +20,7 @@
             </div>
         </div> 
         <br/>
-        <p>Nama Pemilik Rumah</p>
+        <p>Nama Rumah</p>
         <div class="input-group">
             <input name="nama"
                 id="nama"

@@ -46,16 +46,16 @@
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                             Wrong password !
                     </div>');
-                    // redirect('Admin');
+                    redirect('Auth');
 
-                redirect('');
+                // redirect('');
                 }
                 
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                     Email Not Register
                 </div>');
-                redirect('');
+                redirect('Auth');
             }
         }
         public function Register(){
