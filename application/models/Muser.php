@@ -9,4 +9,9 @@
             $query = $this->db->query("SELECT * FROM rumah  ORDER BY populer DESC LIMIT 10")->result_array();
             return $query;
         }
+        public function getListing() {
+            $query = $this->db->query("SELECT * FROM rumah LIMIT 10")->result_array();
+            return $query;
+        }
+
     }

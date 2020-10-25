@@ -216,20 +216,3 @@
 
 
 	</div>
-
-	<script src="<?= base_url()?>global/js/jquery.min.js"></script>
-	<script src="<?= base_url()?>global/js/popper.min.js"></script>
-	<script src="<?= base_url()?>global/js/bootstrap.min.js"></script>
-	<script src="<?= base_url()?>global/js/ion.rangeSlider.min.js"></script>
-	<script src="<?= base_url()?>global/js/select2.min.js"></script>
-	<script src="<?= base_url()?>global/js/jquery.magnific-popup.min.js"></script>
-	<script src="<?= base_url()?>global/js/slick.js"></script>
-	<script src="<?= base_url()?>global/js/slider-bg.js"></script>
-	<script src="<?= base_url()?>global/js/lightbox.js"></script>
-	<script src="<?= base_url()?>global/js/imagesloaded.js"></script>
-	<script src="<?= base_url()?>global/js/daterangepicker.js"></script>
-	<script src="<?= base_url()?>global/js/custom.js"></script>
-	<script src="https://swiperjs.com/package/swiper-bundle.min.js"></script>
-</body>
-
-</html>
