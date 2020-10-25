@@ -17,20 +17,24 @@ class Listing extends CI_Controller {
 		$config['total_rows'] 	= $total_rows;
 		$config['uri_segment'] 	= 3;
 		$config['per_page'] 	= 2; 
-		$config['num_tag_open'] = '<li class="mx-2 page-item">';
-		$config['num_tag_close']= '</li>';
-		$config['prev_link'] 	= '<i class="fa fa-angle-left"></i>';
-		$config['prev_tag_open']='<li class="page-item">';
-		$config['prev_tag_close']='</li>';
-		$config['next_link'] 	= '<i class="fa fa-angle-right"></i>';
-		$config['next_tag_open']='<li class="page-item">';
-		$config['next_tag_close']='</li>';
-		$config['cur_tag_open']='<li class="page-item active disabled mx-2"><a href="#" class="page-link">';
-		$config['cur_tag_close']='</a></li>';
-		$config['first_tag_open']='<li class="page-item">';
-		$config['first_tag_close']='</li>';
-		$config['last_tag_open']='<li class="page-item">';
-		$config['last_tag_close']='</li>';
+		$config['first_link']       = '<i class="fa fa-angle-right"></i>';
+        $config['last_link']        = 'Last';
+        $config['next_link']        = '<i class="fa fa-angle-right"></i>';
+        $config['prev_link']        = 'Prev';
+        $config['full_tag_open']    = '<ul class="pagination p-center">';
+        $config['full_tag_close']   = '</ul>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '</span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '</span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span></li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
 		
 		$this->pagination->initialize($config); 
 		
