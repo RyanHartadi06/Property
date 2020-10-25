@@ -208,7 +208,7 @@
 
 </form>
 
-<!-- <script>
+<script>
   var dengan_rupiah = document.getElementById('harga');
   dengan_rupiah.addEventListener('keyup', function(e) {
     dengan_rupiah.value = formatRupiah(this.value);
@@ -231,4 +231,4 @@
     rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
     return prefix == undefined ? rupiah : (rupiah ? +rupiah : '');
   }
-</script> -->
+</script>

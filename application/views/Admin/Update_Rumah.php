@@ -40,7 +40,7 @@
                       </div>
                       <p>Harga</p>
                       <div class="input-group">
-                          <input name="harga" id="harga" type="number" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['harga'] ?>">
+                          <input name="harga" id="harga" type="text" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['harga'] ?>">
                       </div>
                       <p>Nomor Telepon</p>
                       <div class="input-group">
@@ -202,4 +202,28 @@
           });
           document.getElementById('delete_link').setAttribute('href', delete_url);
       }
+
+
+    var dengan_rupiah = document.getElementById('harga');
+    dengan_rupiah.addEventListener('keyup', function(e) {
+    dengan_rupiah.value = formatRupiah(this.value);
+    // console.log(dengan_rupiah.value);
+  });
+
+  /* Fungsi */
+  function formatRupiah(angka, prefix) {
+    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+      split = number_string.split(','),
+      sisa = split[0].length % 3,
+      rupiah = split[0].substr(0, sisa),
+      ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+      console.log(ribuan);
+    if (ribuan) {
+      separator = sisa ? '.' : '';
+      rupiah += separator + ribuan.join('.');
+    }
+
+    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    return prefix == undefined ? rupiah : (rupiah ? +rupiah : '');
+  }
   </script>
