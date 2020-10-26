@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Listing extends CI_Controller {
+class Product extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -57,6 +57,12 @@ class Listing extends CI_Controller {
 			$this->load->view("User/Listing.php",$data);
 			$this->load->view("template_user/footer.php");
 		}
+    }
+
+    public function detail($id) {
+        $this->load->view('template_user/header_two');
+        $this->load->view('template_user/detail');
+        $this->load->view('template_user/footer');
     }
 
 }
