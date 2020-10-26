@@ -135,7 +135,7 @@
 
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center mt-3">
-        <a href="#" class="btn btn-theme bg-1">Selengkapnya</a>
+        <a href="<?php echo base_url("Home/terbaru"); ?>" class="btn btn-theme bg-1">Selengkapnya</a>
       </div>
     </div>
 
@@ -198,7 +198,7 @@
 
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 text-center mt-3">
-      <a href="#" class="btn btn-theme bg-1">Selengkapnya</a>
+      <a href="<?php echo base_url("Home/populer"); ?>" class="btn btn-theme bg-1">Selengkapnya</a>
     </div>
   </div>
 
