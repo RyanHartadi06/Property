@@ -99,7 +99,7 @@
           <div class="list-slide-box">
             <div class="modern-list">
               <div class="grid-category-thumb">
-                <a href="#" class="overlay-cate"><img src="<?= base_url('uploads/rumah/') . $t['banner']; ?>" class="img-responsive" alt=""></a>
+                <a href="<?php echo base_url('Product/detail/'.$t['id_rumah'])?>" class="overlay-cate"><img src="<?= base_url('uploads/rumah/') . $t['banner']; ?>" class="img-responsive" alt=""></a>
                 <div class="property_meta simple">
                   <?php if ($t['status_property'] == 1) { ?>
                     <a href="#" class="cate-trix theme-cl">Dijual</a>
@@ -111,7 +111,7 @@
               </div>
               <div class="modern-list-content">
                 <div class="listing-content-wrap smalls text-center">
-                  <h4 class="lst-title"><a href="#"><?= $t['nama_pemilik_rumah'] ?></a>
+                  <h4 class="lst-title"><a href="<?php echo base_url('Product/detail/'.$t['id_rumah'])?>"><?= $t['nama_pemilik_rumah'] ?></a>
                   </h4>
                   <p><?= $t['alamat_lengkap'] ?></p>
                   <p class="btn btn-sm rounded-custom py-2 px-2 mt-2"><?= $t['harga'] ?></p>
@@ -161,7 +161,7 @@
           <div class="list-slide-box">
             <div class="modern-list">
               <div class="grid-category-thumb">
-                <a href="#" class="overlay-cate"><img src="<?= base_url('uploads/rumah/') . $p['banner']; ?>" class="img-responsive" alt=""></a>
+                <a href="<?php echo base_url('Product/detail/'.$p['id_rumah'])?>" class="overlay-cate"><img src="<?= base_url('uploads/rumah/') . $p['banner']; ?>" class="img-responsive" alt=""></a>
                 <div class="property_meta simple">
                   <?php if ($p['status_property'] == 1) { ?>
                     <a href="#" class="cate-trix theme-cl">Dijual</a>
@@ -172,7 +172,7 @@
               </div>
               <div class="modern-list-content">
                 <div class="listing-content-wrap smalls text-center">
-                  <h4 class="lst-title"><a href="#"><?= $p['nama_pemilik_rumah'] ?></a>
+                  <h4 class="lst-title"><a href="<?php echo base_url('Product/detail/'.$p['id_rumah'])?>"><?= $p['nama_pemilik_rumah'] ?></a>
                   </h4>
                   <p><?= $p['alamat_lengkap'] ?></p>
                   <p class="btn btn-sm rounded-custom py-2 px-2 mt-2"><?= $p['harga'] ?></p>
