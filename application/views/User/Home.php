@@ -64,7 +64,7 @@
         <div class="col-lg-3 col-md-4">
           <div class="property_location">
             <div class="property_location_thumb">
-              <a href="#"><img src="<?= base_url('uploads/kategori/') . $k['image']; ?>" class="img-fluid rounded-lg" alt="" /></a>
+              <a href="<?php echo base_url("Home/kategori/" . $k['id']); ?>"><img src="<?= base_url('uploads/kategori/') . $k['image']; ?>" class="img-fluid rounded-lg" alt="" /></a>
             </div>
             <div class="property_location_caption">
               <div class="property_location__first">
