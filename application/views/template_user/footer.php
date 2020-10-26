@@ -65,7 +65,8 @@
 	<script src="<?= base_url()?>global/js/imagesloaded.js"></script>
 	<script src="<?= base_url()?>global/js/daterangepicker.js"></script>
 	<script src="<?= base_url()?>global/js/custom.js"></script>
-	<script src="https://swiperjs.com/package/swiper-bundle.min.js"></script>
+    <script src="https://swiperjs.com/package/swiper-bundle.min.js"></script>
+   
 </body>
 
 </html>

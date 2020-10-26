@@ -178,5 +178,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->view("User/Listing.php",$data);
             $this->load->view("template_user/footer.php");
         }
+        public function updatePopuler($id){
+            $data = $this->db->query("SELECT * FROM rumah where id_rumah = '$id'")->row();
+            $populer = $data->populer;
+            $hitung = $populer + 1;
+            // echo $hitung;
+            $this->db->set('populer', $hitung);
+            $this->db->where('id_rumah', $id);
+            $this->db->update('rumah');
+            redirect('Product/detail/'.$id);
+        }
     }
-    ?>
