@@ -40,11 +40,10 @@
                     <tr>
                         <th>Nama Pemilik</th>
                         <th>Alamat Lengkap</th>
-                        <th style="width:50px">Luas Tanah</th>
-                        <th style="width:50px">Luas Bangunan</th>
+                        <th>Luas Tanah</th>
                         <th>Harga</th>
                         <th>Status</th>
-                        <th>Aksi</th> 
+                        <th style="width:100px">Aksi</th> 
                     </tr>
                 </thead>
                 <tbody id="target"> 

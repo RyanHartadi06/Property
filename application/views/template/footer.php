@@ -91,11 +91,9 @@
                                 '<td>'+ data[i].nama_pemilik_rumah+'</td>'+
                                 '<td>'+ data[i].alamat_lengkap+'</td>'+
                                 '<td>'+ data[i].luas_tanah+'</td>'+
-                                '<td>'+ data[i].luas_bangunan +'</td>'+
                                 '<td>'+ data[i].harga +'</td>'+
-                               
                                 '<td>'+ status[data[i].status] +'</td>'+
-                                '<td><a href="Data_Rumah/detail_rumah/'+data[i].id_rumah+'" class="btn btn-sm btn-primary btn-circle"><i class="fas fa-plus"></i></a><a href="Data_Rumah/edit/'+data[i].id_rumah+'"  class="btn btn-sm btn-info btn-circle"><i class="fa fa-pencil-alt"></i></a><a onclick="confirm_modal('+"'Data_Rumah/hapus/"+data[i].id_rumah+"'"+')" href=""  data-toggle="modal" data-target="#hapusModal"class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a></td>'
+                                '<td><a href="Data_Rumah/add_image/'+data[i].id_rumah+'" class="btn btn-sm btn-success btn-circle"><i class="fas fa-folder"></i></a><a href="Data_Rumah/detail_rumah/'+data[i].id_rumah+'" class="btn btn-sm btn-primary btn-circle"><i class="fas fa-plus"></i></a><a href="Data_Rumah/edit/'+data[i].id_rumah+'"  class="btn btn-sm btn-info btn-circle"><i class="fa fa-pencil-alt"></i></a><a onclick="confirm_modal('+"'Data_Rumah/hapus/"+data[i].id_rumah+"'"+')" href=""  data-toggle="modal" data-target="#hapusModal"class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a></td>'
                     
                               '</tr>'
                       }

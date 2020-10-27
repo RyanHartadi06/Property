@@ -103,14 +103,14 @@
                               </div>
                           </div>
                       </div>
-                      <div class="row">
+                      <!-- <div class="row">
                           <div class="col">
                               <p>Component</p>
                               <div class="input-group">
                                   <input name="files[]" type="file" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" multiple="multiple">
                               </div>
                           </div>
-                      </div>
+                      </div> -->
                       <?php if ($d['status'] == 1) { ?>
                           <button type="submit" class="btn btn-info btn-icon-split">
                               <span class="icon text-white-50">

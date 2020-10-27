@@ -168,14 +168,14 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col">
             <p>Component</p>
             <div class="input-group">
               <input name="files[]" type="file" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" multiple="multiple">
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="row">
           <div class="col">
             <p>Deskripsi Rumah</p>

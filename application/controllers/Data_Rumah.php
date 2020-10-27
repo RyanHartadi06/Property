@@ -85,7 +85,7 @@ class Data_Rumah extends CI_Controller
                     'status' => 1,
                 );
                 if ($this->v->insert('rumah', $insert)) {
-                    $this->add_image($kd);
+                    // $this->add_image($kd);
                     $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
                         Rumah Berhasil Ditambahkan
                         </div>');
@@ -280,6 +280,7 @@ class Data_Rumah extends CI_Controller
                             $this->db->insert('detail_rumah', $data);
                             // echo json_encode($data);
                             // "<pre>".print_r($data)."</pre>";
+                            // redirect('Data_Rumah/add_image/'.$id);
                             //  if($data){
                             //         $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">
                             //         Data Berhasil Ditambahkan
