@@ -232,8 +232,20 @@ class Data_Rumah extends CI_Controller
             $this->load->view("Admin/Tambah_Gambar", $data);
             $this->load->view("template/footer");
         } else {
-            $config['upload_path'] = './uploads/rumah/';
-            $config['allowed_types'] = 'gif|jpg|png';
+            $jumlahData = count($_FILES['gambar']['name']);
+
+		// Lakukan Perulangan dengan maksimal ulang Jumlah File yang dipilih
+		for ($i=0; $i < $jumlahData ; $i++):
+
+			// Inisialisasi Nama,Tipe,Dll.
+			$_FILES['file']['name']     = $_FILES['gambar']['name'][$i];
+			$_FILES['file']['type']     = $_FILES['gambar']['type'][$i];
+			$_FILES['file']['tmp_name'] = $_FILES['gambar']['tmp_name'][$i];
+			$_FILES['file']['size']     = $_FILES['gambar']['size'][$i];
+
+			// Konfigurasi Upload
+			$config['upload_path']          = './uploads/rumah/';
+			$config['allowed_types']        = 'gif|jpg|png|pdf|JPG|PNG|JPEG';
             $config['max_size'] = 5248;
             $config['max_width'] = 2048;
             $config['max_height'] = 1000;
@@ -252,50 +264,82 @@ class Data_Rumah extends CI_Controller
 
             $this->load->library('image_lib', $config);
             $this->image_lib->resize();
-            $this->load->library('upload', $config);
-            $keterangan_berkas = $this->input->post('files');
-            $jumlah_berkas = count($_FILES['files']['name']);
+			// Memanggil Library Upload dan Setting Konfigurasi
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
 
-            if ($jumlah_berkas > 10) {
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-                                    Maaf! Maksimal Foto unggahan dibatasi sebanyak 10 foto.
-                </div>');
-            } else {
+			if($this->upload->do_upload('file')){ // Jika Berhasil Upload
 
-                for ($i = 0; $i < $jumlah_berkas; $i++) {
-                    if (!empty($_FILES['files']['name'][$i])) {
+				$fileData = $this->upload->data(); // Lakukan Upload Data
 
-                        $_FILES['file']['name'] = $_FILES['files']['name'][$i];
-                        $_FILES['file']['type'] = $_FILES['files']['type'][$i];
-                        $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
-                        $_FILES['file']['error'] = $_FILES['files']['error'][$i];
-                        $_FILES['file']['size'] = $_FILES['files']['size'][$i];
+                // Membuat Variable untuk dimasukkan ke Database
+                $uploadData[$i]['id_detail_rumah'] = rand(111, 999);
+                $uploadData[$i]['id_rumah'] = $id;
+				$uploadData[$i]['gambar'] = $fileData['file_name']; 
+			}
 
-                        if ($this->upload->do_upload('file')) {
-                            // echo 'qweqe';
-                            $uploadData = $this->upload->data();
-                            $data['id_detail_rumah'] = rand(111, 999);
-                            $data['id_rumah'] = $id;
-                            $data['gambar'] = $uploadData['file_name'];
-                            $this->db->insert('detail_rumah', $data);
-                            // echo json_encode($data);
-                            // "<pre>".print_r($data)."</pre>";
-                            // redirect('Data_Rumah/add_image/'.$id);
-                            //  if($data){
-                            //         $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">
-                            //         Data Berhasil Ditambahkan
-                            //         </div>');
-                            //         redirect('Data_Rumah');
-                            //     }else{
-                            //         $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">
-                            //         Berita Gagal Ditambahkan
-                            //         </div>');
-                            //         redirect('Data_Rumah');
-                            //     }
-                        }
-                    }
-                }
-            }
+		endfor; // Penutup For
+
+		if($uploadData !== null){ // Jika Berhasil Upload
+
+			// Insert ke Database 
+			$insert = $this->v->upload($uploadData);
+			
+			if($insert){ // Jika Berhasil Insert
+				redirect('Data_Rumah/add_image/'.$id);
+			}else{ // Jika Tidak Berhasil Insert
+				redirect('Data_Rumah/add_image/'.$id);
+			}
+
+		}
+
+            // $config['upload_path'] = './uploads/rumah/';
+            // $config['allowed_types'] = 'gif|jpg|png|PNG|JPG|JPEG';
+            
+            // $this->load->library('upload', $config);
+            // $keterangan_berkas = $this->input->post('files');
+            // $jumlah_berkas = count($_FILES['files']['name']);
+
+            // if ($jumlah_berkas > 10) {
+            //     $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+            //                         Maaf! Maksimal Foto unggahan dibatasi sebanyak 10 foto.
+            //     </div>');
+            // } else {
+
+            //     for ($i = 0; $i < $jumlah_berkas; $i++) {
+            //         if (!empty($_FILES['files']['name'][$i])) {
+
+            //             $_FILES['file']['name'] = $_FILES['files']['name'][$i];
+            //             $_FILES['file']['type'] = $_FILES['files']['type'][$i];
+            //             $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
+            //             $_FILES['file']['error'] = $_FILES['files']['error'][$i];
+            //             $_FILES['file']['size'] = $_FILES['files']['size'][$i];
+
+            //             if ($this->upload->do_upload('file')) {
+            //                 // echo 'qweqe';
+            //                 $uploadData = $this->upload->data();
+            //                 $data['id_detail_rumah'] = rand(111, 999);
+            //                 $data['id_rumah'] = $id;
+            //                 $data['gambar'] = $uploadData['file_name'];
+            //                 $this->db->insert('detail_rumah', $data);
+            //                 echo json_encode($data);
+            //                 // "<pre>".print_r($data)."</pre>";
+            //                 // redirect('Data_Rumah/add_image/'.$id);
+            //                 //  if($data){
+            //                 //         $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">
+            //                 //         Data Berhasil Ditambahkan
+            //                 //         </div>');
+            //                 //         redirect('Data_Rumah');
+            //                 //     }else{
+            //                 //         $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">
+            //                 //         Berita Gagal Ditambahkan
+            //                 //         </div>');
+            //                 //         redirect('Data_Rumah');
+            //                 //     }
+            //             }
+            //         }
+            //     }
+            // }
         }
     }
     public function hapus($id)

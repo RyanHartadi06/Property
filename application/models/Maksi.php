@@ -27,6 +27,10 @@
           $cek = $this->db->insert($tabel, $arr);
           return $cek;
       }
+      public function upload($data = array()){
+        // Insert Ke Database dengan Banyak Data Sekaligus
+        return $this->db->insert_batch('detail_rumah',$data);
+    }
       public function save_batch($data){
         return $this->db->insert_batch('detail_rumah', $data);
       }
