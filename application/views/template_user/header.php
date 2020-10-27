@@ -35,9 +35,9 @@
 					<div class="nav-menus-wrapper" style="transition-property: none;">
 						<ul class="nav-menu">
 
-							<li><a href="<?php echo base_url("Home")?>">Beranda</a></li>
+							<li><a href="#">Beranda</a></li>
 							<li><a href="#">Tentang Kami</a></li>
-							<li><a href="<?php echo base_url("Listing")?>">Listing</a></li>
+							<li><a href="#">Listing</a></li>
 
 							<li><a href="#">Beli<span class="submenu-indicator"></span></a>
 								<ul class="nav-dropdown nav-submenu">

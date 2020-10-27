@@ -51,7 +51,7 @@ class Data_Rumah extends CI_Controller
             $this->load->view("template/footer");
         } else {
             $kd = $this->input->post('id_rumah');
-            $gambar = $_FILES['foto']['name'];
+            $gambar = $_FILES['gambar']['name'];
 
             $config['allowed_types'] = 'jpg|png|gif|jpeg';
             $config['max_size'] = '2048';
@@ -84,7 +84,6 @@ class Data_Rumah extends CI_Controller
                     'createdDate' => date('Y-m-d'),
                     'status' => 1,
                 );
-                echo json_encode($insert);
                 if ($this->v->insert('rumah', $insert)) {
                     $this->add_image($kd);
                     $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
