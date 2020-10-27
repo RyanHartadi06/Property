@@ -12,7 +12,7 @@
 
                         <!-- Find New Property -->
                         <div class="sidebar-widgets">
-
+                            <h6 class="mb-3">Filter</h6>
                             <div class="accordion" id="accordionExample">
                                 <div class="card">
                                     <div class="card-header" id="headingOne">
@@ -125,16 +125,9 @@
                                         data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="d-flex">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <input type="number" value="1000" class="form-control common_selector minimum_price">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <input type="number" value="5000" class="form-control common_selector maximum_price">
-                                                    </div>
-                                                </div>
+                                            <p id="price_show">1000 - 65000</p>
+                                            <div id="price_range"></div>
+                                            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
                                             </div>
                                         </div>
                                     </div>
@@ -205,7 +198,7 @@
             filter_data(page);
         });
 
-        $('.form-control').click(function () {
+        $('.common_selector').click(function () {
             filter_data(1);
         });
 
