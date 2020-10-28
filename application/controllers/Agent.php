@@ -5,7 +5,8 @@ class Agent extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('Muser', 'm');
+		$this->load->model('Muser', 'm');
+		$this->load->model('Maksi' , 'v');
     }
 
     public function index() {
@@ -43,15 +44,15 @@ class Agent extends CI_Controller {
 		$mau_ke			= $this->uri->segment(3);
         $idu			= $this->uri->segment(2);
 		$data['agent'] = $this->db->query("SELECT * FROM agent LIMIT $awal, $akhir ")->result_array();
-		
+		$data['page'] = $this->v->getData('page');
 		if($mau_ke = "index") {
 			$this->load->view("template_user/header_two",$data);
 			$this->load->view("User/Agent",$data);
-			$this->load->view("template_user/footer");
+			$this->load->view("template_user/footer",$data);
 		} else {
 			$this->load->view("template_user/header_two",$data);
 			$this->load->view("User/Agen",$data);
-			$this->load->view("template_user/footer");
+			$this->load->view("template_user/footer",$data);
 		}
     }
 

@@ -18,10 +18,11 @@
                 <div class="footer_widget">
                     <h4 class="widget_title">Halaman</h4>
                     <ul class="footer-menu">
-                        <li><a href="#">Sub Halaman</a></li>
-                        <li><a href="#">Sub Halaman</a></li>
-                        <li><a href="#">Sub Halaman</a></li>
-                        <li><a href="#">Sub Halaman</a></li>
+                        <?php foreach($page as $p){?>
+
+                        <li><a href="<?= base_url('Pages_User/detail/').$p['id']?>"><?=$p['name']?></a></li>
+                     
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

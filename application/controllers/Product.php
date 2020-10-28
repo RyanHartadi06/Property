@@ -10,12 +10,14 @@ class Product extends CI_Controller
         parent::__construct();
         $this->load->model('Mproduct', 'p');
         $this->load->model('Maksi', 'a');
+        $this->load->model('Maksi' , 'v');
     }
 
     public function index()
     {
         $data['title'] = "MyHouse - Property Group";
         $data['tipe_properti'] = $this->p->fetch_filter_type('id_kategori');
+        $data['page'] = $this->v->getData('page');
         $data['tipe_kasur'] = $this->p->fetch_filter_type('jumlah_kamar');
         $data['tipe_kamar_mandi'] = $this->p->fetch_filter_type('kamar_mandi');
         $data['tipe_status_properti'] = $this->p->fetch_filter_type('status_property');
@@ -71,14 +73,15 @@ class Product extends CI_Controller
     {
         $data['title'] = "MyHouse - Property Group";
         $data['detail'] = $this->a->getDetailData($id);
+        $data['page'] = $this->v->getData('page');
         $data['rumah_detail'] = $this->db->get_where('detail_rumah', ['id_rumah' => $id])->result();
         $query = $this->db->get_where('rumah', ['id_rumah' => $id])->row_array();
         $sql = $this->db->get_where('rumah', ['id_rumah' => $id])->row_array();
         $data['harga'] = $query['harga'];
-
+        $data['page'] = $this->v->getData('page');
         $this->load->view('template_user/header_two', $data);
         $this->load->view('User/Detail', $data);
-        $this->load->view('template_user/footer');
+        $this->load->view('template_user/footer',$data);
     }
 
 }

@@ -2,9 +2,8 @@
 			<!-- ============================================================== -->
 			<!-- Top header  -->
 			<!-- ============================================================== -->	
-           
-			
-			<!-- ============================ Page Title Start================================== -->
+			<?php foreach ($page_detail as $r) { ?>
+		
 			<div class="page-title" style="background:#f4f4f4 url(assets/img/inner-banner.jpg);" data-overlay="5">
 				<div class="container">
 					<div class="row">
@@ -15,7 +14,7 @@
 									<li class="breadcrumb-item"><a href="#">Beranda</a></li>
 									<!-- <li class="breadcrumb-item active" aria-current="page">Privacy</li> -->
 								</ol>
-								<h2 class="breadcrumb-title">Page - .....</h2>
+								<h2 class="breadcrumb-title">Page - <?= $r->name ?></h2>
 							</div>
 							
 						</div>
@@ -31,7 +30,7 @@
 					
 						<div class="col-lg-10 col-md-12">
 						
-							Deskripsi
+						<?= $r->description ?>
 											
 						</div>
 
@@ -42,3 +41,5 @@
 				</div>
 						
 			</section>
+			<!-- ============================ Page Title Start================================== -->
+			<?php } ?>
