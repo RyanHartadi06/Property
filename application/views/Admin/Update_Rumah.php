@@ -22,10 +22,7 @@
                       <div class="input-group">
                           <input name="alamat" id="alamat" type="text" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['alamat_lengkap'] ?>">
                       </div>
-                      <p>Deskripsi</p>
-                      <div class="input-group">
-                          <textarea name="desc" id="desc" type="text" class="form-control border-dark small mb-3" aria-describedby="basic-addon2"><?php echo $d['deskripsi'] ?></textarea>
-                      </div>
+                     
                       <p>Jumlah Kamar</p>
                       <div class="input-group">
                           <input name="kamar" id="kamar" type="text" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['jumlah_kamar'] ?>">
@@ -34,15 +31,15 @@
                       <div class="input-group">
                           <input name="kamar_mandi" id="kamar_mandi" type="text" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['kamar_mandi'] ?>">
                       </div>
-                      <p>Luas Tanah</p>
+                      <!-- <p>Luas Tanah</p>
                       <div class="input-group">
                           <input name="tanah" id="tanah" type="text" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['luas_tanah'] ?>">
-                      </div>
+                      </div> -->
                       <p>Harga</p>
                       <div class="input-group">
                           <input name="harga" id="harga" type="number" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['harga'] ?>">
                       </div>
-                      <p>Nomor Telepon</p>
+                      <!-- <p>Nomor Telepon</p>
                       <div class="input-group">
                           <input name="no_telp" id="no_telp" type="text" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['no_telp'] ?>">
                       </div>
@@ -61,7 +58,7 @@
                       <p>Kondisi</p>
                       <div class="input-group">
                           <input name="kondisi" id="kondisi" type="text" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['kondisi'] ?>">
-                      </div>
+                      </div> -->
                       <p>Agent</p>
                       <div class="input-group">
                           <select class="form-control border-dark small mb-3" id="agent" name="agent" value="<?php echo set_value('agent') ?>">
@@ -90,9 +87,6 @@
                                     <option value="2">Sewa</option>
                                     <option value="1">Dijual</option>
                                 <?php } ?>
-                             
-                            
-
                           </select>
                       </div>
                       <div class="row">
@@ -102,6 +96,10 @@
                                   <input type="file" id="logo" name="logo" class="form-control border-dark small mb-3" value="<?php echo set_value('logo') ?>" aria-describedby="basic-addon2">
                               </div>
                           </div>
+                      </div>
+                      <p>Deskripsi</p>
+                      <div class="input-group">
+                          <textarea name="desc" id="desc" type="text" class="form-control border-dark small mb-3" aria-describedby="basic-addon2"><?php echo $d['deskripsi'] ?></textarea>
                       </div>
                       <!-- <div class="row">
                           <div class="col">

@@ -13,7 +13,7 @@
               <input type="text" id="nama_pemilik_rumah" name="nama_pemilik_rumah" class="form-control border-dark small mb-3" value="<?php echo set_value('nama_pemilik_rumah') ?>" aria-describedby="basic-addon2">
               <input type="text" id="id_rumah" name="id_rumah" class="form-control border-dark small mb-3" value="<?= $kode ?>" hidden aria-describedby="basic-addon2">
             </div>
-            <?= form_error('id_rumah', '<small class="text-danger">', '</small>') ?>
+            <?= form_error('nama_pemilik_rumah', '<small class="text-danger">', '</small>') ?>
           </div>
         </div>
 
@@ -47,7 +47,7 @@
             <?= form_error('kamar_mandi', '<small class="text-danger">', '</small>') ?>
           </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col">
             <p>Luas Tanah</p>
             <div class="input-group">
@@ -65,7 +65,7 @@
             </div>
             <?= form_error('luas_bangunan', '<small class="text-danger">', '</small>') ?>
           </div>
-        </div>
+        </div> -->
 
         <div class="row">
           <div class="col">
@@ -77,7 +77,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="col">
             <p>Nomor Telpon Pemilik</p>
             <div class="input-group">
@@ -121,7 +121,7 @@
             </div>
             <?= form_error('kondisi', '<small class="text-danger">', '</small>') ?>
           </div>
-        </div>
+        </div> -->
 
         <div class="row">
           <div class="col">
@@ -182,7 +182,7 @@
             <div class="input-group">
               <textarea type="text" id="desc" name="desc" class="form-control border-dark mb-3" aria-describedby="basic-addon2"></textarea>
             </div>
-            <?= form_error('deskripsi', '<small class="text-danger">', '</small>') ?>
+            <?= form_error('desc', '<small class="text-danger">', '</small>') ?>
           </div>
         </div>
         <br />

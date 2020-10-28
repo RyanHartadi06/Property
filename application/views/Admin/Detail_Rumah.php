@@ -46,15 +46,7 @@
                 value="<?php echo $d['alamat_lengkap'] ?>"
                 disabled>
         </div>
-        <p>Deskripsi</p>
-        <div class="input-group">
-            <textarea name="nama"
-                id="nama"
-                type="text"
-                class="form-control border-dark small mb-3"
-                aria-describedby="basic-addon2"
-                disabled><?php echo $d['deskripsi'] ?></textarea>
-        </div>
+     
         <p>Jumlah Kamar</p>
         <div class="input-group">
             <input name="nama"
@@ -75,7 +67,7 @@
                 value="<?php echo $d['kamar_mandi'] ?>"
                 disabled>
         </div>
-        <p>Luas Tanah</p>
+        <!-- <p>Luas Tanah</p>
         <div class="input-group">
             <input name="nama"
                 id="nama"
@@ -84,7 +76,7 @@
                 aria-describedby="basic-addon2"
                 value="<?php echo $d['luas_tanah'] ?>"
                 disabled>
-        </div>
+        </div> -->
         <p>Harga</p>
         <div class="input-group">
             <input name="nama"
@@ -95,7 +87,7 @@
                 value="<?php echo $d['harga'] ?>"
                 disabled>
         </div>
-        <p>Nomor Telepon</p>
+        <!-- <p>Nomor Telepon</p>
         <div class="input-group">
             <input name="nama"
                 id="nama"
@@ -104,7 +96,7 @@
                 aria-describedby="basic-addon2"
                 value="<?php echo $d['no_telp'] ?>"
                 disabled>
-        </div>
+        </div> -->
         <p>Agent</p>
         <div class="input-group">
             <input name="nama"
@@ -125,7 +117,7 @@
                 value="<?php echo $d['name'] ?>"
                 disabled>
         </div>
-        <p>Sertifikat</p>
+        <!-- <p>Sertifikat</p>
         <div class="input-group">
             <input name="nama"
                 id="nama"
@@ -164,7 +156,7 @@
                 aria-describedby="basic-addon2"
                 value="<?php echo $d['kondisi'] ?>"
                 disabled>
-        </div>
+        </div> -->
         <p>Status</p>
         <?php if ($d['status_property'] == 1){?>
             <div class="input-group">
@@ -186,6 +178,16 @@
                 value="Sewa"
                 disabled>
         </div>
+           <p>Deskripsi</p>
+        <div class="input-group">
+            <textarea name="deskripsiText"
+                id="deskripsiText"
+                type="text"
+                class="form-control border-dark small mb-3"
+                aria-describedby="basic-addon2" style="height:300"
+                ><?php echo $d['deskripsi'] ?></textarea>
+        </div>
+       
         <?php }?>
       
             <?php if($d['status'] == 1){?>
@@ -203,6 +205,7 @@
                     <span class="text">Sudah Terjual</span>
                 </a>
             <?php } ?>
+            
         <?php } ?>
         <a href="<?php echo site_url('Data_Rumah') ?>" class="btn btn-danger btn-icon-split">
             <span class="icon text-white-50">

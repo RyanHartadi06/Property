@@ -34,7 +34,12 @@ class Data_Rumah extends CI_Controller
     }
     public function add()
     {
-        $this->form_validation->set_rules('nama_pemilik_rumah', 'Pemilik Rumah', 'required');
+        $this->form_validation->set_rules('nama_pemilik_rumah', 'Property', 'required');
+        $this->form_validation->set_rules('alamat_lengkap', 'Alamat Property', 'required');
+        $this->form_validation->set_rules('desc', 'Deskripsi Property', 'required');
+        $this->form_validation->set_rules('harga', 'Harga Property', 'required');
+        // $this->form_validation->set_rules('jumlah_kamar', 'Jumlah Kamar ', 'required');
+        // $this->form_validation->set_rules('kamar_mandi', 'Kamar Mandi Property', 'required');
         // $this->form_validation->set_rules('isi','Isi','required');
         $kode = $this->v->randomkode(32);
         if ($this->form_validation->run() == false) {
@@ -65,21 +70,21 @@ class Data_Rumah extends CI_Controller
                     'id_rumah' => $kd,
                     'nama_pemilik_rumah' => $this->input->post('nama_pemilik_rumah'),
                     'alamat_lengkap' => $this->input->post('alamat_lengkap'),
-                    'no_telp' => $this->input->post('no_telp'),
+                    'no_telp' =>'',
                     'deskripsi' => $this->input->post('desc'),
                     'jumlah_kamar' => $this->input->post('jumlah_kamar'),
-                    'luas_tanah' => $this->input->post('luas_tanah'),
-                    'luas_bangunan' => $this->input->post('luas_bangunan'),
+                    'luas_tanah' => '',
+                    'luas_bangunan' => '',
                     'harga' => $this->input->post('harga'),
                     'kamar_mandi' => $this->input->post('kamar_mandi'),
                     'banner' => $foto_namaBaru,
                     'populer' => 0,
                     'id_agent' => $this->input->post('agent'),
                     'id_kategori' => $this->input->post('kat'),
-                    'sertifikat' => $this->input->post('sertifikat'),
-                    'air' => $this->input->post('air'),
-                    'listrik' => $this->input->post('listrik'),
-                    'kondisi' => $this->input->post('kondisi'),
+                    'sertifikat' => '',
+                    'air' => '',
+                    'listrik' => '',
+                    'kondisi' => '',
                     'status_property' => $this->input->post('status_property'),
                     'createdDate' => date('Y-m-d'),
                     'status' => 1,
@@ -135,13 +140,13 @@ class Data_Rumah extends CI_Controller
                 'deskripsi' => $this->input->post("desc"),
                 'jumlah_kamar' => $this->input->post("kamar"),
                 'kamar_mandi' => $this->input->post("kamar_mandi"),
-                'luas_tanah' => $this->input->post("tanah"),
+                'luas_tanah' => '',
                 'harga' => $this->input->post("harga"),
-                'no_telp' => $this->input->post("no_telp"),
-                'sertifikat' => $this->input->post("sertifikat"),
-                'air' => $this->input->post("air"),
-                'listrik' => $this->input->post("listrik"),
-                'kondisi' => $this->input->post("kondisi"),
+                'no_telp' => '',
+                'sertifikat' => '',
+                'air' => '',
+                'listrik' => '',
+                'kondisi' => '',
                 'id_agent' => $this->input->post("agent"),
                 'id_kategori' => $this->input->post("kategori"),
                 'status_property' => $this->input->post("status_property"),
