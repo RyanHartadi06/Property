@@ -4,7 +4,7 @@
 			<!-- ============================================================== -->	
 			<?php foreach ($page_detail as $r) { ?>
 		
-			<div class="page-title" style="background:#f4f4f4 url(assets/img/inner-banner.jpg);" data-overlay="5">
+			<div class="page-title" data-overlay="5">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 col-md-12">

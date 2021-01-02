@@ -10,8 +10,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             belumlogin();
         }
         public function index() {
-            $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-            $this->session->userdata('email')])->row_array(); 
+            $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+            $this->session->userdata('id_pengguna')])->row_array(); 
             $data['dataku'] = $this->v->feedBack(1);
             $this->load->view("template/sidebar" , $data);
             $this->load->view("template/header",$data);
@@ -19,8 +19,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->view("template/footer");
         }
         public function lama(){
-            $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-            $this->session->userdata('email')])->row_array(); 
+            $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+            $this->session->userdata('id_pengguna')])->row_array(); 
             $data['dataku'] = $this->v->feedBack(2);
             $this->load->view("template/sidebar" , $data);
             $this->load->view("template/header",$data);
@@ -59,8 +59,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         public function detail($id)
         {
-            $data['Pengguna'] = $this->db->get_where('pengguna', ['email' =>
-            $this->session->userdata('email')])->row_array();
+            $data['Pengguna'] = $this->db->get_where('pengguna', ['id_pengguna' =>
+            $this->session->userdata('id_pengguna')])->row_array();
             $data['feedback'] = $this->v->getDetailProf('feedback','id_feedback', $id);
 
             $this->db->set('status', 2);
@@ -74,8 +74,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         public function detaillama($id)
         {
-            $data['Pengguna'] = $this->db->get_where('pengguna', ['email' =>
-            $this->session->userdata('email')])->row_array();
+            $data['Pengguna'] = $this->db->get_where('pengguna', ['id_pengguna' =>
+            $this->session->userdata('id_pengguna')])->row_array();
             $data['feedback'] = $this->v->getDetailProf('feedback','id_feedback', $id);
 
            

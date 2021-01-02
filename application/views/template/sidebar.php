@@ -37,11 +37,11 @@
       <i class="fas fa-fw fa-table"></i>
       <span>Kategori Rumah</span></a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="<?= base_url("Konten")?>">
-      <i class="fas fa-fw fa-table"></i>
-      <span>Konten</span></a>
-  </li>
+  <!--<li class="nav-item">-->
+  <!--  <a class="nav-link" href="<?= base_url("Konten")?>">-->
+  <!--    <i class="fas fa-fw fa-table"></i>-->
+  <!--    <span>Konten</span></a>-->
+  <!--</li>-->
   <li class="nav-item">
     <a class="nav-link" href="<?= base_url("Pages")?>">
       <i class="fas fa-fw fa-table"></i>

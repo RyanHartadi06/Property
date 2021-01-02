@@ -21,7 +21,7 @@
                 <div class="input-group">
                   <Textarea type="text" class="form-control bg-gray-200 border-0 small mb-3" placeholder="" aria-describedby="basic-addon2" disabled><?= $Pengguna['no_telp']?></Textarea>
                 </div>
-              <a href="<?php echo site_url('Admin/edit/' .$Pengguna['id_pengguna']) ?>"
+              <a href="<?php echo site_url('Admin/edit/' .$this->session->userdata('id_pengguna')) ?>"
                 class="btn btn-sm btn-primary btn-icon-split shadow-sm">
                 <span class="icon text-white-50">
                     <i class="fas fa-pen"></i>

@@ -11,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         public function index()
         {
-            $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-            $this->session->userdata('email')])->row_array(); 
+            $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+            $this->session->userdata('id_pengguna')])->row_array(); 
             $data['dataku'] = $this->v->getData('profile');
             $this->load->view("template/sidebar" , $data);
             $this->load->view("template/header",$data);
@@ -21,11 +21,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         public function edit($id){
             $this->form_validation->set_rules('desc' , 'Deskripsi' , 'required');
-            $this->form_validation->set_rules('visi' , 'Visi' , 'required');
-            $this->form_validation->set_rules('misi' , 'Misi' , 'required');
+            // $this->form_validation->set_rules('visi' , 'Visi' , 'required');
+            // $this->form_validation->set_rules('misi' , 'Misi' , 'required');
             if ($this->form_validation->run() == false) {
-                $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-                $this->session->userdata('email')])->row_array(); 
+                $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+            $this->session->userdata('id_pengguna')])->row_array(); 
                 $data['dataku'] = $this->v->getDetailProf('profile' , 'id_profile' , $id);
                 $this->load->view("template/sidebar" , $data);
                 $this->load->view("template/header",$data);
@@ -33,8 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->load->view("template/footer");
             }else {
                 $update = $this->v->ubahdata(array(
-                    'visi' => $this->input->post("visi"),
-                    'misi' => $this->input->post("misi"),
+                    // 'visi' => $this->input->post("visi"),
+                    // 'misi' => $this->input->post("misi"),
                     'deskripsi' => $this->input->post("desc")
                 ), $id);
     

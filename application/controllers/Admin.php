@@ -11,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         public function index()
         {
-            $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-            $this->session->userdata('email')])->row_array(); 
+            $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+            $this->session->userdata('id_pengguna')])->row_array(); 
             $data['totalAgent'] = $this->v->getTotal('agent');
             $data['tersedia'] = $this->v->getTotal2('rumah' , 1);
             $data['terjual'] = $this->v->getTotal2('rumah' , 2);
@@ -34,8 +34,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         public function filterhari()
         {
-            $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-            $this->session->userdata('email')])->row_array(); 
+            $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+            $this->session->userdata('id_pengguna')])->row_array(); 
             $data['totalAgent'] = $this->v->getTotal('agent');
             $data['tersedia'] = $this->v->getTotal2('rumah' , 1);
             $data['terjual'] = $this->v->getTotal2('rumah' , 2);
@@ -57,8 +57,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         public function filtertahun()
         {
-            $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-            $this->session->userdata('email')])->row_array(); 
+            $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+            $this->session->userdata('id_pengguna')])->row_array(); 
             $data['totalAgent'] = $this->v->getTotal('agent');
             $data['tersedia'] = $this->v->getTotal2('rumah' , 1);
             $data['terjual'] = $this->v->getTotal2('rumah' , 2);
@@ -77,8 +77,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->view("template/footer");
         }
         public function data(){
-            $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-            $this->session->userdata('email')])->row_array(); 
+            $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+            $this->session->userdata('id_pengguna')])->row_array(); 
     
             $this->load->view("template/sidebar" , $data);
             $this->load->view("template/header",$data);
@@ -90,15 +90,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('alamat' , 'Alamat' , 'required');
             $this->form_validation->set_rules('no_telp' , 'Nomor Telepon' , 'required');
             $this->form_validation->set_rules('nama' , 'Nama Pengguna' , 'required');
+             $this->form_validation->set_rules('password' , 'Password' , 'required');
             if ($this->form_validation->run() == false) {
-                $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-                $this->session->userdata('email')])->row_array(); 
+                $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+            $this->session->userdata('id_pengguna')])->row_array(); 
                 $data['dataku'] = $this->v->getDetailProf('pengguna' , 'id_pengguna' , $id);
                 $this->load->view("template/sidebar" , $data);
                 $this->load->view("template/header",$data);
                 $this->load->view("Admin/Edit_Admin",$data);
                 $this->load->view("template/footer");
             }else {
+                
                 $update = $this->v->ubahdata2(array(
                     'nama_pengguna' => $this->input->post('nama'),
                     'email' =>  $this->input->post('email'),

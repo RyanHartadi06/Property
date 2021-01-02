@@ -26,9 +26,9 @@
                                     </button>
                                 </form>
                                 <hr>
-                                <div class="text-center">
-                                <a class="small" href="<?= base_url('Auth/Forgot_Password')?>">Forgot Password?</a>
-                                </div>
+                                <!--<div class="text-center">-->
+                                <!--<a class="small" href="<?= base_url('Auth/Forgot_Password')?>">Forgot Password?</a>-->
+                                <!--</div>-->
                                 <div class="text-center">
                                     <a class="small" href="<?= base_url('Auth/Register') ?>">Daftar Sebagai Admin</a>
                                 </div>

@@ -95,7 +95,7 @@
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Your Account has been success created
             </div>');
-                redirect('Auth/Login');
+                redirect('Auth');
             }
         }
         public function logout()

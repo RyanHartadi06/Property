@@ -1,0 +1,47 @@
+[03-Nov-2020 12:11:41 UTC] PHP Fatal error:  Call to a member function num_rows() on boolean in /home/dennyapt/mhagentproperty.com/application/models/Mproduct.php on line 88
+[06-Nov-2020 06:53:25 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dennyapt/mhagentproperty.com/application/views/User/Detail.php on line 9
+[06-Nov-2020 06:53:28 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dennyapt/mhagentproperty.com/application/views/User/Detail.php on line 9
+[06-Nov-2020 06:53:42 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dennyapt/mhagentproperty.com/application/views/User/Detail.php on line 9
+[06-Nov-2020 06:53:44 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dennyapt/mhagentproperty.com/application/views/User/Detail.php on line 9
+[06-Nov-2020 06:54:37 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dennyapt/mhagentproperty.com/application/views/User/Detail.php on line 9
+[06-Nov-2020 06:54:43 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dennyapt/mhagentproperty.com/application/views/User/Detail.php on line 9
+[06-Nov-2020 06:56:08 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dennyapt/mhagentproperty.com/application/views/User/Detail.php on line 9
+[11-Nov-2020 03:38:20 UTC] PHP Fatal error:  Call to a member function num_rows() on boolean in /home/dennyapt/mhagentproperty.com/application/models/Mproduct.php on line 88
+[11-Nov-2020 09:48:22 UTC] PHP Parse error:  syntax error, unexpected 'endforeach' (T_ENDFOREACH) in /home/dennyapt/mhagentproperty.com/application/views/User/Agent.php on line 62
+[25-Nov-2020 07:38:09 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 24576 bytes) in /home/dennyapt/mhagentproperty.com/system/libraries/Image_lib.php on line 1466
+[25-Nov-2020 07:38:49 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 24576 bytes) in /home/dennyapt/mhagentproperty.com/system/libraries/Image_lib.php on line 1466
+[12-Dec-2020 10:41:13 UTC] PHP Fatal error:  Cannot redeclare Data_Rumah::index() in /home/dennyapt/mhagentproperty.com/application/controllers/Data_Rumah.php on line 19
+[15-Dec-2020 08:16:15 UTC] PHP Fatal error:  Call to a member function num_rows() on boolean in /home/dennyapt/mhagentproperty.com/application/models/Mproduct.php on line 88
+[15-Dec-2020 08:16:32 UTC] PHP Fatal error:  Call to a member function num_rows() on boolean in /home/dennyapt/mhagentproperty.com/application/models/Mproduct.php on line 88
+[15-Dec-2020 11:33:39 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 11:33:41 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 11:33:42 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 11:33:43 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 11:33:46 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 11:33:54 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 11:35:06 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 11:44:02 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 11:44:38 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 12:21:48 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 12:21:51 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 12:27:15 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 12:27:33 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 12:31:05 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 12:31:12 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 12:31:13 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 12:31:15 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 12:31:16 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 12:31:18 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 12:56:23 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 12:56:27 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 13:09:43 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 13:59:57 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 14:00:49 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 14:00:52 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 14:00:54 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 14:01:18 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 14:01:55 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 14:22:00 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[15-Dec-2020 14:23:23 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/dennyapt/mhagentproperty.com/application/controllers/About.php on line 16
+[17-Dec-2020 05:53:32 UTC] PHP Fatal error:  Call to a member function num_rows() on boolean in /home/dennyapt/mhagentproperty.com/application/models/Mproduct.php on line 88
+[17-Dec-2020 05:53:37 UTC] PHP Fatal error:  Call to a member function num_rows() on boolean in /home/dennyapt/mhagentproperty.com/application/models/Mproduct.php on line 88

@@ -11,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         public function index()
         {
-            $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-            $this->session->userdata('email')])->row_array(); 
+            $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+            $this->session->userdata('id_pengguna')])->row_array(); 
             $data['dataku'] = $this->v->getData('page');
             $this->load->view("template/sidebar" , $data);
             $this->load->view("template/header",$data);
@@ -25,8 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('desc' , 'description' , 'required');
            
             if ($this->form_validation->run() == false) {
-                $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-                $this->session->userdata('email')])->row_array(); 
+                $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+                $this->session->userdata('id_pengguna')])->row_array(); 
                 $data['dataku'] = $this->v->getData('content');
                 $this->load->view("template/sidebar" , $data);
                 $this->load->view("template/header",$data);
@@ -37,6 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'id' => rand(111,999),
                     'name' => $this->input->post('nama'),
                     'description' => $this->input->post('desc'),
+                    'tgl_input' => date('Y-m-d')
                 );
                 if ($this->v->insert('page' ,$insert)) {
                     $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">
@@ -68,8 +69,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('desc' , 'description' , 'required');
            
             if ($this->form_validation->run() == false) {
-                $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-                $this->session->userdata('email')])->row_array(); 
+                $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+                $this->session->userdata('id_pengguna')])->row_array(); 
                 $data['dataku'] = $this->v->getDetailProf('page' , 'id' , $id);
                 $this->load->view("template/sidebar" , $data);
                 $this->load->view("template/header",$data);

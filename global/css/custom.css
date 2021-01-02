@@ -18,7 +18,7 @@
     border-radius: .25rem;
 }
 
-.modern-list .property_meta {
+/* .modern-list .property_meta {
     display: flex;
     margin: 0;
     position: absolute;
@@ -27,9 +27,9 @@
     align-items: center;
     width: 100%;
     padding: 12px 20px;
-}
+} */
 
-.cate-trix {
+/* .cate-trix {
     display: inline-block;
     padding: 6px 20px;
     border-radius: 3px;
@@ -40,9 +40,9 @@
     color: #fff !important;
     box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
     -webkit-box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
-}
+} */
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
     .modern-list .property_meta {
         display: flex;
         margin: 0;
@@ -53,7 +53,7 @@
         width: 100%;
         padding: 12px 20px;
     }
-}
+} */
 
 /* footer.dark-footer {
     background: #f1f6fc
@@ -64,6 +64,14 @@
     transition: all ease .4s;
     font-size: 14px;
 } */
+
+.fp_types {
+    padding: 6px 12px;
+    border-radius: 50px;
+    background: #ff9b20;
+    font-size: 13px;
+    color: #fbfbfb;
+}
 
 footer.skin-dark-footer h4 {
     color: #ff7f66;
@@ -99,3 +107,58 @@ footer.skin-dark-footer h4 {
     -webkit-align-items: center;
     align-items: center;
   }
+  
+@media only screen and (max-width: 768px) {
+    .header {
+    background: #fff;
+    z-index: 4
+}
+
+.header.header-transparent.header-fixed {
+    box-shadow: 0 5px 30px rgba(0, 22, 84, 0.1);
+    -webkit-box-shadow: 0 5px 30px rgba(0, 22, 84, 0.1);
+    background: #fff;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    top: 0;
+    -webkit-transition: .2s ease-in;
+    -o-transition: .2s ease-in;
+    transition: .2s ease-in;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    border: none;
+    -webkit-animation-name: slideInDown;
+    animation-name: slideInDown;
+}
+}
+@media only screen and (max-width: 768px) {
+.header.header-transparent {
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: inline-block;
+    width: 100%;
+    z-index: 4;
+    border-bottom: 1px solid #C5691D;
+}
+.header.header-fixed {
+    box-shadow: 0 5px 30px rgba(0, 22, 84, 0.1);
+    -webkit-box-shadow: 0 5px 30px rgba(0, 22, 84, 0.1);
+    background: #fff;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    top: 0;
+    -webkit-transition: .2s ease-in;
+    -o-transition: .2s ease-in;
+    transition: .2s ease-in;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-name: slideInDown;
+    animation-name: slideInDown;
+}
+    
+}

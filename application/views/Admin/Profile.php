@@ -7,14 +7,14 @@
           <div class="card shadow mb-4">
             <div class="card-body">
             <img src="<?= base_url('uploads/rumah/') . $d['logo_brand']; ?>" alt="" style="width:140px">
-              <p>Visi</p>
-                <div class="input-group">
-                  <Textarea type="text" class="form-control bg-gray-200 border-0 small mb-3" placeholder="" aria-describedby="basic-addon2" disabled><?= $d['visi']?></Textarea>
-                </div>
-              <p>Misi</p>
-                <div class="input-group">
-                  <Textarea type="text" class="form-control bg-gray-200 border-0 small mb-3" placeholder="" aria-describedby="basic-addon2" disabled><?= $d['misi']?></Textarea>
-                </div>
+              <!--<p>Visi</p>-->
+              <!--  <div class="input-group">-->
+              <!--    <Textarea type="text" class="form-control bg-gray-200 border-0 small mb-3" placeholder="" aria-describedby="basic-addon2" disabled><?= $d['visi']?></Textarea>-->
+              <!--  </div>-->
+              <!--<p>Misi</p>-->
+              <!--  <div class="input-group">-->
+              <!--    <Textarea type="text" class="form-control bg-gray-200 border-0 small mb-3" placeholder="" aria-describedby="basic-addon2" disabled><?= $d['misi']?></Textarea>-->
+              <!--  </div>-->
               <p>Deskripsi</p>
                 <div class="input-group">
                   <Textarea type="text" class="form-control bg-gray-200 border-0 small mb-3" placeholder="" aria-describedby="basic-addon2" disabled><?= $d['deskripsi']?></Textarea>

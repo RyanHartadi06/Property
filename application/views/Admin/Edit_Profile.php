@@ -6,35 +6,35 @@
 <?php foreach($dataku as $d){ ?>
 <div class="card shadow mb-4">
   <div class="card-body">
-          <div class="row">
-              <div class="col">
-                <p>Visi</p>
-                  <div class="input-group">
-                    <textarea type="text"
-                    id="visi"
-                    name="visi"
-                           class="form-control border-dark small mb-3"
-                           placeholder="Masukkan Visi"
-                           aria-describedby="basic-addon2"><?= $d['visi']?></textarea>
-                  </div>
-                  <?= form_error('visi', '<small class="text-danger">', '</small>')?> 
-              </div>
-          </div>
+          <!--<div class="row">-->
+          <!--    <div class="col">-->
+          <!--      <p>Visi</p>-->
+          <!--        <div class="input-group">-->
+          <!--          <textarea type="text"-->
+          <!--          id="visi"-->
+          <!--          name="visi"-->
+          <!--                 class="form-control border-dark small mb-3"-->
+          <!--                 placeholder="Masukkan Visi"-->
+          <!--                 aria-describedby="basic-addon2"><?= $d['visi']?></textarea>-->
+          <!--        </div>-->
+          <!--        <?= form_error('visi', '<small class="text-danger">', '</small>')?> -->
+          <!--    </div>-->
+          <!--</div>-->
 
-          <div class="row">
-              <div class="col">
-                <p>Misi</p>
-                  <div class="input-group">
-                    <textarea type="text"
-                    id="misi"
-                    name="misi"
-                           class="form-control border-dark small mb-3"
-                           placeholder="Masukkan Misi"
-                           aria-describedby="basic-addon2"><?= $d['misi']?></textarea>
-                  </div>
-                  <?= form_error('misi', '<small class="text-danger">', '</small>')?> 
-              </div>
-          </div>
+          <!--<div class="row">-->
+          <!--    <div class="col">-->
+          <!--      <p>Misi</p>-->
+          <!--        <div class="input-group">-->
+          <!--          <textarea type="text"-->
+          <!--          id="misi"-->
+          <!--          name="misi"-->
+          <!--                 class="form-control border-dark small mb-3"-->
+          <!--                 placeholder="Masukkan Misi"-->
+          <!--                 aria-describedby="basic-addon2"><?= $d['misi']?></textarea>-->
+          <!--        </div>-->
+          <!--        <?= form_error('misi', '<small class="text-danger">', '</small>')?> -->
+          <!--    </div>-->
+          <!--</div>-->
 
         
 

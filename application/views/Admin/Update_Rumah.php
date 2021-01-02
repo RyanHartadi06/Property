@@ -5,7 +5,7 @@
 
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Detail Rumah</h1>
+          <h1 class="h3 mb-2 text-gray-800">Detail Property</h1>
           <div class="col mt-3">
               <?php echo $this->session->flashdata('pesan') ?>
           </div>
@@ -31,10 +31,14 @@
                       <div class="input-group">
                           <input name="kamar_mandi" id="kamar_mandi" type="text" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['kamar_mandi'] ?>">
                       </div>
-                      <!-- <p>Luas Tanah</p>
+                       <p>Luas Tanah</p>
                       <div class="input-group">
-                          <input name="tanah" id="tanah" type="text" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['luas_tanah'] ?>">
-                      </div> -->
+                          <input name="luas_tanah" id="luas_tanah" type="text" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['luas_tanah'] ?>">
+                      </div>
+                       <p>Luas Bangunan</p>
+                      <div class="input-group">
+                          <input name="luas_bangunan" id="luas_bangunan" type="text" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['luas_bangunan'] ?>">
+                      </div>
                       <p>Harga</p>
                       <div class="input-group">
                           <input name="harga" id="harga" type="number" class="form-control border-dark small mb-3" aria-describedby="basic-addon2" value="<?php echo $d['harga'] ?>">

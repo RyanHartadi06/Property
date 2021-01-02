@@ -11,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         public function index()
         {
-            $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-            $this->session->userdata('email')])->row_array(); 
+            $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+            $this->session->userdata('id_pengguna')])->row_array(); 
             $data['dataku'] = $this->v->getData('content');
             $this->load->view("template/sidebar" , $data);
             $this->load->view("template/header",$data);
@@ -25,8 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('icon' , 'Icon' , 'required');
             $kode = $this->v->randomkode(32);
             if ($this->form_validation->run() == false) {
-                $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-                $this->session->userdata('email')])->row_array(); 
+                $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+                $this->session->userdata('id_pengguna')])->row_array(); 
                 $data['dataku'] = $this->v->getData('content');
                 $this->load->view("template/sidebar" , $data);
                 $this->load->view("template/header",$data);
@@ -55,8 +55,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('desc' , 'description' , 'required');
             $this->form_validation->set_rules('icon' , 'Icon' , 'required');
             if ($this->form_validation->run() == false) {
-                $data['Pengguna'] = $this->db->get_where('pengguna',['email' => 
-                $this->session->userdata('email')])->row_array(); 
+                $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+                $this->session->userdata('id_pengguna')])->row_array(); 
                 $data['dataku'] = $this->v->getDetailProf('content' , 'id' , $id);
                 $this->load->view("template/sidebar" , $data);
                 $this->load->view("template/header",$data);
