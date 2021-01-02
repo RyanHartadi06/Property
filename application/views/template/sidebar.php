@@ -37,11 +37,7 @@
       <i class="fas fa-fw fa-table"></i>
       <span>Kategori Rumah</span></a>
   </li>
-  <!--<li class="nav-item">-->
-  <!--  <a class="nav-link" href="<?= base_url("Konten")?>">-->
-  <!--    <i class="fas fa-fw fa-table"></i>-->
-  <!--    <span>Konten</span></a>-->
-  <!--</li>-->
+  
   <li class="nav-item">
     <a class="nav-link" href="<?= base_url("Pages")?>">
       <i class="fas fa-fw fa-table"></i>
@@ -56,17 +52,22 @@
     Sistem
   </div>
   <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTentang" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Feedback</span>
-        </a>
-        <div id="collapseTentang" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url("Feedback_Admin")?>">Terbaru</a>
-            <a class="collapse-item" href="<?php echo site_url('Feedback_Admin/lama') ?>">Telah Terbaca</a>
-          </div>
-        </div>
-      </li>
+   <a class="nav-link" href="<?= base_url("Slider")?>">
+     <i class="fas fa-fw fa-table"></i>
+     <span>Slider</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTentang" aria-expanded="true" aria-controls="collapseTwo">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Feedback</span>
+    </a>
+    <div id="collapseTentang" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <a class="collapse-item" href="<?= base_url("Feedback_Admin")?>">Terbaru</a>
+        <a class="collapse-item" href="<?php echo site_url('Feedback_Admin/lama') ?>">Telah Terbaca</a>
+      </div>
+    </div>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="<?= base_url("Profile")?>">
       <i class="fas fa-fw fa-table"></i>
