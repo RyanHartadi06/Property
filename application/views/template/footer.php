@@ -159,13 +159,18 @@
   <script src="<?= base_url("assets/vendor/chart.js/Chart.min.js") ?>"></script>
 
   <script src="<?= base_url("assets/vendor/datatables/jquery.dataTables.min.js") ?>"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
   <script src="<?= base_url("assets/vendor/datatables/dataTables.bootstrap4.min.js") ?>"></script>
   <script type="text/javascript">
     $(document).ready(function() {
       $('.but').trigger('click');
-    })
+    });
+
+    $(document).ready(function() {
+       $('.js-example-basic-single').select2();
+    });
   </script>
+
 
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
@@ -470,7 +475,6 @@
       return s.join(dec);
 
     }
-
 
 
     // Area Chart Example

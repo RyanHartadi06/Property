@@ -85,12 +85,16 @@
               <div class="col-md-3">
                 <p>Pilih Agent</p>
                 <div class="input-group">
-                  <select class="form-control border-dark small mb-3" id="agent" name="agent">
+                  <select class="form-control border-dark small mb-3 js-example-basic-single" id="agent" name="agent">
                     <?php foreach ($agent as $l) { ?>
                       <option value="<?php echo $l['id_agent']; ?>"><?php echo $l['nama_agent']; ?> </option>
                     <?php } ?>
                   </select>
                 </div>
+                <!-- <select class="js-example-basic-single" name="state">
+                  <option value="AL">Alabama</option>
+                  <option value="WY">Wyoming</option>
+                </select> -->
               </div>
             </div>
             <div class="row col-md-12">
