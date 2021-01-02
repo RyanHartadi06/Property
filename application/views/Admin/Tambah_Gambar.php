@@ -7,6 +7,9 @@
               <div id="divMsg" class="alert alert-success" style="display: none">
                   <span id="msg"></span>
               </div>
+              <div class="col mt-3">
+        <?php echo $this->session->flashdata('pesan')?>
+    </div>
               <form id="upload_form" enctype="multipart/form-data">
                   <div class="form-group">
                       <label for="exampleEmail">Gambar</label>
@@ -20,7 +23,7 @@
                   </div>
                   <div class="form-group">
                       <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
-                      <a href="<?= base_url(); ?>Data_Rumah" class="btn btn-light waves-effect waves-light">Kembali</a>
+                      <a href="<?= base_url(); ?>Data_Rumah" class="btn btn-danger waves-effect waves-light">Lain Kali</a>
                   </div>
               </form>
           </div>
@@ -101,6 +104,8 @@
               if ($('#image_file').val() == '') {
                   alert("Please Select the File");
               } else {
+                $('#divMsg').html('<div class="alert alert-success" role="alert">Sedang Melakukan Proses Upload ......</div>');
+                $('#divMsg').show();
                   var form_data = new FormData();
                   var ins = document.getElementById('image_file').files.length;
                   for (var x = 0; x < ins; x++) {

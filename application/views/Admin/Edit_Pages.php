@@ -37,7 +37,20 @@
                   <?= form_error('desc', '<small class="text-danger">', '</small>')?> 
               </div>
           </div>
-
+          <div class="row">
+              <div class="col">
+                <p>Gambar</p>
+                  <div class="input-group">
+                    <input type="file"
+                    id="foto"
+                    name="foto"
+                           class="form-control border-dark small mb-3"
+                           value="<?php echo set_value('foto')?>"
+                           aria-describedby="basic-addon2">
+                  </div>
+                  <?= form_error('foto', '<small class="text-danger">', '</small>')?> 
+              </div>
+          </div>
 <?php }?>
               <br />
               <button type="submit" class="btn btn-info btn-icon-split">

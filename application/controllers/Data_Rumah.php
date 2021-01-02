@@ -67,12 +67,6 @@ class Data_Rumah extends CI_Controller
     public function add()
     {
         $this->form_validation->set_rules('nama_pemilik_rumah', 'Property', 'required');
-        // $this->form_validation->set_rules('alamat_lengkap', 'Alamat Property', 'required');
-        // $this->form_validation->set_rules('desc', 'Deskripsi Property', 'required');
-        // $this->form_validation->set_rules('harga', 'Harga Property', 'required');
-        // $this->form_validation->set_rules('jumlah_kamar', 'Jumlah Kamar ', 'required');
-        // $this->form_validation->set_rules('kamar_mandi', 'Kamar Mandi Property', 'required');
-        // $this->form_validation->set_rules('isi','Isi','required');
         $kode = $this->v->randomkode(32);
         if ($this->form_validation->run() == false) {
 
@@ -118,15 +112,15 @@ class Data_Rumah extends CI_Controller
                     'listrik' => '',
                     'kondisi' => '',
                     'status_property' => $this->input->post('status_property'),
-                    'createdDate' => date('Y-m-d'),
+                    'createdDate' => date('Y-m-d H:i:s'),
                     'status' => 1,
                 );
                 if ($this->v->insert('rumah', $insert)) {
                     // $this->add_image($kd);
                     $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-                        Rumah Berhasil Ditambahkan
-                        </div>');
-                    redirect('Data_Rumah');
+                      Data Property Berhasil Ditambahkan , Silahkan Tambahkan Galeri
+                    </div>');
+                    redirect('Data_Rumah/add_image/'.$kd);
                 } else {
                     $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Gagal Karena Tanpa Gambar</div>');
                     redirect('Data_Rumah');
@@ -162,7 +156,7 @@ class Data_Rumah extends CI_Controller
             'listrik' => '',
             'kondisi' => '',
             'status_property' => $post['status_property'],
-            'createdDate' => date('Y-m-d'),
+            'createdDate' => date('Y-m-d H:i:s'),
             'status' => 1
         );
 
@@ -242,7 +236,7 @@ class Data_Rumah extends CI_Controller
             }
         endfor; // Penutup For
         $bang = json_encode($arr);
-        $this->resizeCok($fileData['file_name']);
+        $this->resizeData($fileData['file_name']);
         if ($uploadData !== null) { // Jika Berhasil Upload
 
             // Insert ke Database 
@@ -377,23 +371,35 @@ class Data_Rumah extends CI_Controller
             }
         }
     }
-    public function filter()
+    public function filter_punyamasega()
     {
         $status = $_GET['dataStatus'];
         $query = $this->db->query("SELECT * FROM rumah WHERE status = '$status' ORDER BY id DESC ")->result();
         echo json_encode($query);
     }
-    public function filterkat()
+    public function filterkat_punyamasega()
     {
         $datakategori = $_GET['datakategori'];
         $query = $this->db->query("SELECT * FROM rumah WHERE id_kategori = '$datakategori' ORDER BY id DESC ")->result();
+        echo json_encode($query);
+    }
+    public function filter()
+    {
+        $status = $_GET['dataStatus'];
+        $query = $this->db->query("SELECT * FROM rumah WHERE status = '$status' ORDER BY id_rumah DESC ")->result();
+        echo json_encode($query);
+    }
+    public function filterkat()
+    {
+        $datakategori = $_GET['datakategori'];
+        $query = $this->db->query("SELECT * FROM rumah WHERE id_kategori = '$datakategori' ORDER BY id_rumah DESC ")->result();
         echo json_encode($query);
     }
     public function accepted($id)
     {
         $update = $this->v->ubahdata2(array(
             'status' => 2,
-            'createdDate' => date('Y-m-d'),
+            'createdDate' => date('Y-m-d H:i:s'),
         ), "id_rumah", "rumah", $id);
         if ($update) {
             $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
@@ -464,7 +470,7 @@ class Data_Rumah extends CI_Controller
                 }
             endfor; // Penutup For
             $bang = json_encode($arr);
-            $this->resizeCok($fileData['file_name']);
+            $this->resizeData($fileData['file_name']);
             if ($uploadData !== null) { // Jika Berhasil Upload
 
                 // Insert ke Database 
@@ -546,28 +552,7 @@ class Data_Rumah extends CI_Controller
         echo json_encode($arr);
     
     }
-    //     public function resize($path, $file) => GHAIB LUR
-    // {
-    //     $sizes = array(200, 70, 40);
-
-    //     $this->load->library('image_lib');
-
-    //     foreach($sizes as $size)
-    //     { 
-    //       $config['image_library']    = 'gd2';
-    //       $config['source_image']     = $path;
-    //       $config['create_thumb']     = true;
-    //       $config['maintain_ratio']   = true;
-    //       $config['width']            = $size;
-    //       $config['height']           = $size;   
-    //       $config['new_image']        = './uploads/rumah/' . $size . $file;
-
-    //       $this->image_lib->clear();
-    //       $this->image_lib->initialize($config);
-    //       $this->image_lib->resize();
-    //     }
-    // }
-
+    
     public function kompres($filename)
     {
         $haha = json_decode($filename, true);
@@ -591,7 +576,7 @@ class Data_Rumah extends CI_Controller
         }
     }
 
-    public function resizeCok($filename)
+    public function resizeData($filename)
     {
         $source_path = $_SERVER['DOCUMENT_ROOT'] . '/uploads/rumah/' . $filename;
         $target_path = $_SERVER['DOCUMENT_ROOT'] . '/uploads/rumah/';
