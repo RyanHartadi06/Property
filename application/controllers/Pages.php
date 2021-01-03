@@ -15,10 +15,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
             $this->session->userdata('id_pengguna')])->row_array(); 
             $data['dataku'] = $this->db->query("SELECT * FROM page ORDER BY tgl_input DESC")->result_array();
-           
             $this->load->view("template/sidebar" , $data);
             $this->load->view("template/header",$data);
             $this->load->view("Admin/Pages" , $data);
+            $this->load->view("template/footer");
+        }
+        public function detail($id)
+        {
+            $data['Pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => 
+            $this->session->userdata('id_pengguna')])->row_array(); 
+            $data['dataku'] = $this->db->query("SELECT * FROM page WHERE id = '$id'")->result_array();
+            $this->load->view("template/sidebar" , $data);
+            $this->load->view("template/header",$data);
+            $this->load->view("Admin/DetailPages" , $data);
             $this->load->view("template/footer");
         }
         public function add(){

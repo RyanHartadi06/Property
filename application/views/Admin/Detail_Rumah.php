@@ -15,7 +15,7 @@
             <div class="col">
                 <p>Banner Rumah</p>
                 <div class="input-group">
-                    <img src="<?= base_url('uploads/rumah/') . $d['banner']; ?>" alt="" style="width:1200px">
+                    <img src="<?= base_url('uploads/rumah/') . $d['banner']; ?>" alt="" style="width:800px">
                 </div>
             </div>
         </div> 
