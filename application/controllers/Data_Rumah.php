@@ -117,9 +117,9 @@ class Data_Rumah extends CI_Controller
                 );
                 if ($this->v->insert('rumah', $insert)) {
                     // $this->add_image($kd);
-                    $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-                      Data Property Berhasil Ditambahkan , Silahkan Tambahkan Galeri
-                    </div>');
+                    // $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+                    //   Data Property Berhasil Ditambahkan , Silahkan Tambahkan Galeri
+                    // </div>');
                     redirect('Data_Rumah/add_image/'.$kd);
                 } else {
                     $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Gagal Karena Tanpa Gambar</div>');
@@ -386,13 +386,13 @@ class Data_Rumah extends CI_Controller
     public function filter()
     {
         $status = $_GET['dataStatus'];
-        $query = $this->db->query("SELECT * FROM rumah WHERE status = '$status' ORDER BY id_rumah DESC ")->result();
+        $query = $this->db->query("SELECT * FROM rumah WHERE status = '$status' ")->result();
         echo json_encode($query);
     }
     public function filterkat()
     {
         $datakategori = $_GET['datakategori'];
-        $query = $this->db->query("SELECT * FROM rumah WHERE id_kategori = '$datakategori' ORDER BY id_rumah DESC ")->result();
+        $query = $this->db->query("SELECT * FROM rumah WHERE id_kategori = '$datakategori' ")->result();
         echo json_encode($query);
     }
     public function accepted($id)
