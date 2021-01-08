@@ -184,7 +184,56 @@
 
   <script src="<?= base_url("assets/js/demo/chart-pie-demo.js") ?>"></script>
 
+<script type="text/javascript" src="<?php echo base_url().'assets/summernote/summernote-bs4.js';?>"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#desc').summernote({
+      height: "300px",
+      callbacks: {
+        onImageUpload: function(image) {
+          uploadImage(image[0]);
+        },
+        onMediaDelete: function(target) {
+          deleteImage(target[0].src);
+        }
+      }
+    });
 
+    function uploadImage(image) {
+      var data = new FormData();
+      data.append("image", image);
+      $.ajax({
+        url: "<?php echo site_url('Pages/upload_image') ?>",
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: data,
+        type: "POST",
+        success: function(url) {
+          $('#desc').summernote("insertImage", url);
+        },
+        error: function(data) {
+          console.log(data);
+        }
+      });
+    }
+
+    function deleteImage(src) {
+      $.ajax({
+        data: {
+          src: src
+        },
+        type: "POST",
+        url: "<?php echo site_url('Pages/delete_image') ?>",
+        cache: false,
+        success: function(response) {
+          console.log(response);
+        }
+      });
+    }
+
+  });
+</script>
 
   <script>
     loadrumah();
